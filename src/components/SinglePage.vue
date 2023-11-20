@@ -64,6 +64,7 @@
                 <h2 class="is-size-3">SOBRE NÓS</h2>
             </div>
             <p>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ornare gravida aliquam. 
                 Duis a ornare lorem. Curabitur hendrerit vulputate elit, vel sodales neque sollicitudin ac. 
                 Sed non ultricies nibh. Vestibulum venenatis, ligula vel laoreet dapibus, purus est lobortis 
@@ -73,6 +74,7 @@
             </p>
             <div class="columns is-gapless">
                 <p class="column">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     Praesent a lectus sollicitudin, ornare nisi vitae, tempus nisl. Pellentesque eget nibh leo. 
                     Mauris sit amet vehicula ante. Phasellus rhoncus ac nunc vitae sit ullamcorper. Duis congue 
                     vehicula ac nunc tempor. Phasellus vel diam ac turpis maximus de semper. Maecenas sagittis 
@@ -83,13 +85,17 @@
                     id, fringilla in tellus. Sed sed libero a mi vehicula tincidunt vitae gravida tortor. Nullam id 
                     eleifend massa. Etiam eu euismod dui, a luctus lectus. Quisque hendrerit risus et iaculis varius.
                 </p>
-                <div class="column is-flex is-justify-content-flex-end is-align-items-center">
-                    <img src="@/assets/images/time.svg" alt="Time" width="380" height="380">
+                <div class="column is-flex is-justify-content-center is-align-items-center">
+                    <img src="@/assets/images/time.svg" alt="Time" width="300" height="300">
                 </div>
             </div>
             <p>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 Integer pharetra tempus lectus ultrices ornare. Sed accumsan, sem non cursus malesuada, sem purus 
-                suscipit velit, sed dapibus ex nisl ac nisl. Ut tellus ipsum, feugiat a justo eu, bibendum varius dolor.
+                suscipit velit, sed dapibus ex nisl ac nisl. Ut tellus ipsum, feugiat a justo eu, bibendum varius dolor. 
+                Sed tellus risus, bibendum et consequat id, fringilla in tellus. Sed sed libero a mi vehicula tincidunt 
+                vitae gravida tortor. Nullam id eleifend massa. Etiam eu euismod dui, a luctus lectus. Quisque hendrerit 
+                risus et iaculis varius.
             </p>
         </section>
     </main>
@@ -127,7 +133,7 @@
         position: relative;
         padding: 0 10vw;
         color: #fff;
-        height: 95vh;
+        height: 100vh;
     }
 
     #frase-efeito, #autor-frase-efeito {
