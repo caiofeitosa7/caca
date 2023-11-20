@@ -1,0 +1,18 @@
+@import url('https://fonts.cdnfonts.com/css/baloo');
+@import url('https://fonts.cdnfonts.com/css/prosto-one');
+
+:root {
+    --verde-principal: #00A8A8;
+    --preto: #686868;
+}
+
+body {
+    font-family: 'Baloo', sans-serif;
+    color: var(--preto);
+    line-height: 14px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
