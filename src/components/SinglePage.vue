@@ -72,7 +72,7 @@
                 enim faucibus. Vestibulum a eros blandit, bibendum felis et, rhoncus nulla. Etiam lectus est, 
                 viverra in rhoncus nec, maximus id ex.
             </p>
-            <div class="columns is-gapless">
+            <div class="columns is-gapless mb-0">
                 <p class="column">
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     Praesent a lectus sollicitudin, ornare nisi vitae, tempus nisl. Pellentesque eget nibh leo. 
@@ -86,7 +86,7 @@
                     eleifend massa. Etiam eu euismod dui, a luctus lectus. Quisque hendrerit risus et iaculis varius.
                 </p>
                 <div class="column is-flex is-justify-content-center is-align-items-center">
-                    <img src="@/assets/images/time.svg" alt="Time" width="300" height="300">
+                    <img src="@/assets/images/time2.svg" alt="Time" width="300" height="300">
                 </div>
             </div>
             <p>
@@ -97,6 +97,62 @@
                 vitae gravida tortor. Nullam id eleifend massa. Etiam eu euismod dui, a luctus lectus. Quisque hendrerit 
                 risus et iaculis varius.
             </p>
+        </section>
+        <section id="container-projetos" class="section-conteudo">
+            <div class="is-flex is-justify-content-center is-align-items-center is-flex-direction-column mb-5">
+                <span class="mb-1"></span>
+                <h2 class="is-size-3">PROJETOS</h2>
+            </div>
+            <div class="px-1">
+                <div class="is-flex is-justify-content-space-evenly mb-6">
+                    <div class="card-projeto">
+                        <img src="@/assets/images/aula-teclado.png" alt="Foto da aula de teclado">
+                        <div class="is-flex is-justify-content-center is-align-items-center is-flex-direction-column px-3">
+                            <p class="titulo-card-projeto">OFICINA DE TECLADO</p>
+                            <p class="conteudo-card-projeto">
+                                As crianças descobrem o mundo da música por meio das teclas do teclado! 
+                                A oficina de teclado é projetado para crianças e adolescentes que desejam 
+                                explorar a magia da música de uma forma criativa e envolvente.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="card-projeto">
+                        <img src="@/assets/images/aula-informatica.png" alt="">
+                        <div class="is-flex is-justify-content-center is-align-items-center is-flex-direction-column px-3">
+                            <p class="titulo-card-projeto">OFICINA DE COMPUTAÇÃO</p>
+                            <p class="conteudo-card-projeto">
+                                O curso oferece uma jornada empolgante para explorar o vasto mundo da tecnologia. 
+                                De conceitos básicos a habilidades avançadas, nossas aulas proporcionam uma educação 
+                                prática e divertida em informática.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="is-flex is-justify-content-space-between">
+                    <div class="card-projeto">
+                        <img src="@/assets/images/aula-capoeira.png" alt="Foto da aula de teclado">
+                        <div class="is-flex is-justify-content-center is-align-items-center is-flex-direction-column px-3">
+                            <p class="titulo-card-projeto">AULA DE CAPOEIRA</p>
+                            <p class="conteudo-card-projeto">
+                                O mundo da capoeira é onde a dança se encontra com a luta, a música e a cultura. 
+                                Maneira divertida e enriquecedora de promover a saúde física e mental, bem como 
+                                uma conexão com a rica cultura brasileira.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="card-projeto">
+                        <img src="@/assets/images/aula-karate.png" alt="">
+                        <div class="is-flex is-justify-content-center is-align-items-center is-flex-direction-column px-3">
+                            <p class="titulo-card-projeto">AULA DE KARATÊ</p>
+                            <p class="conteudo-card-projeto">
+                                Nossas aulas de karatê são uma oportunidade de fortalecer tanto o corpo quanto 
+                                a mente, preparando as crianças e promovendo valores como foco, disciplina, 
+                                respeito, autocontrole e determinação.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
     </main>
 </template>
@@ -188,18 +244,58 @@
         line-height: normal;
     }
 
-    .section-conteudo h2 {
-        color: #FF788D;
-    }
-
     .section-conteudo span {
-        border-bottom: 5px solid #FF788D;
+        border-bottom: 5px solid;
         display: block;
         width: 57px;
     }
 
-    #container-sobre-nos div {
-        margin: auto;
+    #container-sobre-nos h2 {
+        color: #FF788D;
+    }
+
+    #container-sobre-nos span {
+        border-color: #FF788D;
+    }
+
+    #container-projetos {
+        background-image: url('@/assets/images/bg-projetos.jpg');
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+    }
+
+    #container-projetos h2 {
+        color: #fff;
+    }
+
+    #container-projetos span {
+        border-color: #fff;
+    }
+
+    .card-projeto {
+        width: 330px;
+        height: 400px;
+        color: #fff;
+        border-radius: 20px;
+        background-color: rgba(000, 000, 000, 25%);
+    }
+
+    .card-projeto img {
+        border-radius: 20px 20px 0 0;
+        line-height: 15px;
+    }
+
+    .card-projeto .titulo-card-projeto {
+        font-size: large;
+        padding: 10px;
+    }
+
+    .card-projeto .conteudo-card-projeto {
+        padding: 0 15px;
+        line-height: 20px;
+        text-align: center;
     }
 
 </style>
