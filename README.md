@@ -37,3 +37,5 @@ npm run dev
 
 ## :dart: Status do projeto
 Projeto em desenvolvimento (Fase Inicial).
+
+<img src="src/assets/images/gif-site.gif" align="center">

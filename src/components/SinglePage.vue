@@ -3,10 +3,10 @@
 
 <template>
     <main>
-        <nav class="columns is-gapless px-3">
+        <nav class="columns is-gapless px-3 py-1">
             <h1 id="logo" class="column is-clickable is-narrow is-flex is-align-items-center">
-                <img class="image is-rounded is-48x48" src="@/assets/images/logo-caca.png" alt="Logo CACA">
-                <p class="is-size-7 has-text-start has-text-weight-bold">
+                <img class="image is-rounded is-48x48" src="@/assets/images/logo-caca.png" alt="Logo do CACA">
+                <p class="is-size-7 has-text-start">
                     CENTRO DE APOIO À<br>CRIANÇA E AO ADOSLESCENTE
                 </p>
             </h1>
@@ -242,7 +242,7 @@
                 <div class="column">
                     <p class="has-text-centered is-size-4">
                         Você pode ser um voluntário ajudando em diversas frentes do CACA. O trabalho 
-                        com as crianças funciona de segund a sábado, na sede situada no bairro Satélite.
+                        com as crianças funciona de segunda a sábado na sede situada no bairro Satélite.
                     </p>
                 </div>
                 <div class="column is-flex is-justify-content-center is-align-items-center is-flex-direction-column">
@@ -251,6 +251,58 @@
                 </div>
             </div>
         </section>
+        <section id="container-contato" class="section-conteudo">
+            <div class="is-flex is-justify-content-center is-align-items-center is-flex-direction-column mb-5">
+                <span class="mb-1"></span>
+                <h2 class="is-size-3">CONTATO</h2>
+            </div>
+            <div class="columns">
+                <div class="column is-flex is-align-items-center is-flex-direction-column">
+                    <a href="/" class="image is-128x128">
+                        <img class="is-rounded" src="@/assets/images/logo-caca.png" alt="Logo do CACA">
+                    </a>
+                    <p class="has-text-centered my-5">
+                        Quase 30 anos cuidando do desenvolvimento de centenas de crianças e adolescentes.
+                    </p>
+                    <div class="is-flex">
+                        <a href="">
+                            <img class="image is-32x32 mr-3" src="@/assets/images/whatsapp.png" alt="Icone Whatsapp">
+                        </a>
+                        <a href="">
+                            <img class="image is-32x32 mr-3" src="@/assets/images/instagram.png" alt="Icone Instagram">
+                        </a>
+                        <a href="">
+                            <img class="image" src="@/assets/images/email.png" alt="Icone Email" width="35">
+                        </a>
+                    </div>
+                </div>
+                <div class="column is-flex is-flex-direction-column">
+                    <p class="is-size-5">Fale conosco !</p>
+                    <p class="my-5">Envie sua mensagem via WhatsApp ou E-mail que retornaremos em breve!</p>
+                    <div class="is-flex">
+                        <img class="image is-16x16 mr-1 mb-2" src="@/assets/images/icon-whatsapp.png" alt="Icone branco do Whatsapp">
+                        <p>(86) 9 9999-9999</p>
+                    </div>
+                    <div class="is-flex is-align-items-center">
+                        <img class="image is-16x16 mr-1" src="@/assets/images/icon-email.png" alt="Icone branco do Whatsapp">
+                        <p>exemplo@gmail.com</p>
+                    </div>
+                </div>
+                <div class="column is-flex is-flex-direction-column">
+                    <p class="is-size-5">Nosso endereço :</p>
+                    <ul class="my-5">
+                        <li>
+                            Rua Santa Quitéria, n° 4447, <br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Satélite, Teresina/PI, Brasil
+                        </li>
+                    </ul>
+                    <img class="image" src="@/assets/images/mapa-caca.png" alt="Icone Email">
+                </div>
+            </div>
+        </section>
+        <footer class="is-flex is-justify-content-center py-4">
+            <span>CACA © 2023 - Todos os direitos reservados.</span>
+        </footer>
     </main>
 </template>
 
@@ -260,21 +312,23 @@
         margin-bottom: 0 !important;
     }
 
-    #logo {
-        color: var(--verde-principal);
-    }
-
     #btn-login {
         background-color: var(--verde-principal);
         border-radius: 25px;
         color: #fff;
     }
 
+    #btn-login:hover {
+        border: 1px solid var(--verde-principal);
+        color: var(--verde-principal);
+        background-color: #fff;
+    }
+
     nav li:not(:last-child) {
         margin-right: 30px;
     }
 
-    nav .menu-selecionado {
+    nav li:hover, .menu-selecionado, #logo {
         color: var(--verde-principal);
     }
 
@@ -430,7 +484,7 @@
         color: #fff;
     }
 
-    #container-comoAjudar {
+    #container-comoAjudar, footer {
         background-color: rgba(0, 168, 168, 6%);
     }
 
@@ -442,5 +496,20 @@
         width: 90%;
     }
 
+    #container-contato {
+        background-color: var(--verde-principal);
+        color: #fff;
+    }
 
+    #container-contato p, #container-contato li {
+        line-height: 18px;
+    }
+
+    #container-contato ul {
+        list-style: inside;
+    }
+
+    footer {
+        color: #999;
+    }
 </style>
