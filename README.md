@@ -36,6 +36,7 @@ npm run dev
 </table>
 
 ## :dart: Status do projeto
-Projeto em desenvolvimento (Fase Inicial).
+Projeto em desenvolvimento.
 
+## :computer: Visualização mais recente do projeto
 <img src="src/assets/images/gif-site.gif" align="center">
