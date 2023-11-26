@@ -218,15 +218,37 @@
                 </div>
                 <div id="btnMaisNoticias" class="is-flex is-justify-content-center is-align-items-center">
                     <a href="#">Mais Notícias</a>
-
                 </div>
-
-                
-
-
-
-
-
+            </div>
+        </section>
+        <section id="container-comoAjudar" class="section-conteudo">
+            <div class="is-flex is-justify-content-center is-align-items-center is-flex-direction-column mb-5">
+                <span class="mb-1"></span>
+                <h2 class="is-size-3">COMO AJUDAR ?</h2>
+            </div>
+            <div class="columns is-align-items-center">
+                <div class="column is-flex is-justify-content-center is-align-items-center is-flex-direction-column">
+                    <img class="mb-3" src="@/assets/images/donation.png" alt="Imagem de pessoas pondo sua doação em uma caixa grande">
+                    <p>Doe Qualquer Valor!</p>
+                </div>
+                <div class="column">
+                    <p class="has-text-centered is-size-4">
+                        O ato de doar contribui para a transformação da sociedade e principalmente das pessoas. 
+                        Quem doa, beneficia a si próprio.
+                    </p>
+                </div>
+            </div>
+            <div class="columns is-align-items-center">
+                <div class="column">
+                    <p class="has-text-centered is-size-4">
+                        Você pode ser um voluntário ajudando em diversas frentes do CACA. O trabalho 
+                        com as crianças funciona de segund a sábado, na sede situada no bairro Satélite.
+                    </p>
+                </div>
+                <div class="column is-flex is-justify-content-center is-align-items-center is-flex-direction-column">
+                    <img src="@/assets/images/solidariedade.svg" alt="Imagem de pessoas pondo sua doação em uma caixa grande">
+                    <p>Seja Voluntário!</p>
+                </div>
             </div>
         </section>
     </main>
@@ -407,5 +429,18 @@
         background-color: #007CBF;
         color: #fff;
     }
+
+    #container-comoAjudar {
+        background-color: rgba(0, 168, 168, 6%);
+    }
+
+    #container-comoAjudar h2, #container-comoAjudar span{
+        color: var(--verde-principal);
+    }
+
+    #container-comoAjudar img {
+        width: 90%;
+    }
+
 
 </style>
