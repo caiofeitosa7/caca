@@ -154,6 +154,81 @@
                 </div>
             </div>
         </section>
+        <section id="container-noticias" class="section-conteudo">
+            <div class="is-flex is-justify-content-center is-align-items-center is-flex-direction-column mb-5">
+                <span class="mb-1"></span>
+                <h2 class="is-size-3">ÚLTIMAS NOTÍCIAS</h2>
+            </div>
+            <div class="container-conteudo-noticias columns is-multiline">
+                <div class="card-noticia column is-full is-flex mb-5 p-0">
+                    <img src="@/assets/images/natal.png" alt="">
+                    <div class="px-5 py-5">
+                        <div class="is-flex is-justify-content-space-between mb-4">
+                            <p class="titulo-card-noticia">
+                                Celebração de Natal: "Brilho nas Estrelas" 🌟🎄
+                            </p>
+                            <p class="data-noticia ml-1">26/12/2023</p>
+                        </div>
+                        <p class="is-text-center has-text-centered">
+                            Integer efficitur sed dui nec porta. Pellentesque pulvinar commodo mi ut accumsan. 
+                            Donec pellentesque velit tortor, ullamcorper dignissim ex feugiat in. Etiam ac 
+                            ante a arcu tristique semper nec vitae justo. Sed aliquam felis felis, vel 
+                            sollicitudin nisi lobortis vitae. Cras gravida, nisi eget vehicula imperdiet. Fusce ut lectus arcu. 
+                            Nullam sagittis luctus velit, et vulputate ex congue luctus. Integer nec nisl non 
+                            nunc mollis lacinia nec eu mi luctus.
+                        </p>
+                    </div>
+                </div>
+                <div class="card-noticia column is-full is-flex mb-5 p-0">
+                    <img src="@/assets/images/doacao.png" alt="">
+                    <div class="px-5 py-5">
+                        <div class="is-flex is-justify-content-space-between mb-4">
+                            <p class="titulo-card-noticia">
+                                Doação de Alimentos - Espalhando Amor e Nutrição 🥫❤️
+                            </p>
+                            <p class="data-noticia ml-1">26/12/2023</p>
+                        </div>
+                        <p class="is-text-center has-text-centered">
+                            Cada doação de alimentos é um ato de bondade que faz a diferença na vida de alguém. 
+                            Fazemos o possível para ajudar a nutrir corações e estômagos famintos, e demonstrar 
+                            o verdadeiro espírito de solidariedade. Juntos, podemos tornar o mundo um lugar mais 
+                            caloroso e acolhedor. Faça parte desta causa e ajude-nos a espalhar amor para estas 
+                            crianças e suas famílias.
+                        </p>
+                    </div>
+                </div>
+                <div class="card-noticia column is-full is-flex mb-5 p-0">
+                    <img src="@/assets/images/dia-criancas.png" alt="">
+                    <div class="px-5 py-5">
+                        <div class="is-flex is-justify-content-space-between mb-4">
+                            <p class="titulo-card-noticia">
+                                Dia das Crianças: Uma Jornada de Diversão e Aprendizado 🎈🎉
+                            </p>
+                            <p class="data-noticia ml-1">26/12/2023</p>
+                        </div>
+                        <p class="is-text-center has-text-centered">
+                            Integer efficitur sed dui nec porta. Pellentesque pulvinar commodo mi ut accumsan. 
+                            Donec pellentesque velit tortor, ullamcorper dignissim ex feugiat in. Etiam ac ante 
+                            a arcu tristique semper nec vitae justo. Sed aliquam felis felis, vel sollicitudin 
+                            nisi lobortis vitae. Cras gravida, nisi eget vehicula imperdiet, eros lorem viverra 
+                            nulla, ac bibendum lorem orci et metus. Nullam sagittis luctus 
+                            velit, et vulputate ex congue luctus.
+                        </p>
+                    </div>
+                </div>
+                <div id="btnMaisNoticias" class="is-flex is-justify-content-center is-align-items-center">
+                    <a href="#">Mais Notícias</a>
+
+                </div>
+
+                
+
+
+
+
+
+            </div>
+        </section>
     </main>
 </template>
 
@@ -250,12 +325,8 @@
         width: 57px;
     }
 
-    #container-sobre-nos h2 {
+    #container-sobre-nos h2, #container-sobre-nos span, .data-noticia {
         color: #FF788D;
-    }
-
-    #container-sobre-nos span {
-        border-color: #FF788D;
     }
 
     #container-projetos {
@@ -284,7 +355,6 @@
 
     .card-projeto img {
         border-radius: 20px 20px 0 0;
-        line-height: 15px;
     }
 
     .card-projeto .titulo-card-projeto {
@@ -296,6 +366,46 @@
         padding: 0 15px;
         line-height: 20px;
         text-align: center;
+    }
+
+    #container-noticias h2, #container-noticias span, .titulo-card-noticia {
+        color: #007CBF;
+    }
+
+    .container-conteudo-noticias {
+        line-height: 20px;
+        margin: auto;
+    }
+
+    .card-noticia {
+        height: 230px;
+        border-radius: 15px;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .card-noticia img {
+        height: 100%;
+    }
+
+    .card-noticia img {
+        border-radius: 15px 0 0 15px;
+    }
+
+    .card-noticia div, #btnMaisNoticias {
+        width: -webkit-fill-available;
+    }
+
+    #btnMaisNoticias a {
+        box-shadow: 0 5px 5px rgba(0, 0, 0, 0.25);
+        border: 3px solid #007CBF;
+        border-radius: 25px;
+        padding: 7px 20px;
+        color: #007CBF;
+    }
+
+    #btnMaisNoticias a:hover {
+        background-color: #007CBF;
+        color: #fff;
     }
 
 </style>
