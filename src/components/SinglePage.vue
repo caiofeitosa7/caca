@@ -19,7 +19,7 @@
 
 <template>
     <main>
-        <nav class="columns is-gapless px-3 py-1">
+        <nav class="columns is-gapless px-3 py-1 mb-0">
             <h1 id="logo" class="column is-clickable is-narrow">
                 <a href="/" class="is-flex is-align-items-center">
                     <img class="image is-rounded is-48x48" src="@/assets/images/logo-caca.png" alt="Logo do CACA">
@@ -260,7 +260,7 @@
                     <p>Doe Qualquer Valor!</p>
                 </div>
                 <div class="column">
-                    <p class="has-text-centered is-size-4">
+                    <p class="descricao has-text-centered is-size-4">
                         O ato de doar contribui para a transformação da sociedade e principalmente das pessoas. 
                         Quem doa, beneficia a si próprio.
                     </p>
@@ -268,7 +268,7 @@
             </div>
             <div class="columns is-align-items-center">
                 <div class="column">
-                    <p class="has-text-centered is-size-4">
+                    <p class="descricao has-text-centered is-size-4">
                         Você pode ser um voluntário ajudando em diversas frentes do CACA. O trabalho 
                         com as crianças funciona de segunda a sábado na sede situada no bairro Satélite.
                     </p>
@@ -316,7 +316,7 @@
                         <p>exemplo@gmail.com</p>
                     </div>
                 </div>
-                <div class="column is-flex is-flex-direction-column">
+                <div id="divEndereco" class="column is-flex is-flex-direction-column">
                     <p class="is-size-5">Nosso endereço :</p>
                     <ul class="my-5">
                         <li>
@@ -341,7 +341,6 @@
         position: sticky;
         font-size: smaller;
         background-color: #fff;
-        margin-bottom: 0 !important;
     }
 
     #btn-login {
@@ -544,4 +543,42 @@
     footer {
         color: #999;
     }
+
+
+    /* -------------------------------------------------------------------------- */
+
+
+    @media screen and (max-width: 768px) {
+        #container-comoAjudar :last-child {
+            display: flex;
+            flex-direction: column-reverse;
+        }
+
+        #container-comoAjudar img {
+            max-width: 70%;
+        }
+
+        footer {
+            font-size: small;
+        }
+
+        #divEndereco {
+            margin-top: 25px;
+        }
+    }
+
+    @media screen and (max-width: 480px) {
+        #container-comoAjudar img {
+            max-width: 100%;
+        }
+
+        #container-comoAjudar .descricao {
+            font-size: large !important;
+        }
+
+        footer {
+            font-size: x-small;
+        }
+    }
+
 </style>
