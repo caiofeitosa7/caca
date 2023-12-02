@@ -18,7 +18,7 @@ Para rodar o projeto presente neste repositório é necessário clonar o mesmo e
 npm run dev
 ```
 
-## :soon: Implementação futura
+## :crystal_ball: Implementação futura
 * Sistema de gerenciamento para as atividades internas da instituição.
 
 ## :handshake: Colaboradores

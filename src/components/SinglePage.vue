@@ -1,29 +1,57 @@
-<script setup>
+<script>
+    export default {
+        data() {
+            return {
+                secaoAtiva: 'banner-frase'
+            };
+        },
+        methods: {
+            scrollToSection(secaoAlvo) {
+                const targetElement = document.getElementById(secaoAlvo);
+                this.secaoAtiva = secaoAlvo;
+
+                if (targetElement)
+                    targetElement.scrollIntoView({behavior: 'smooth'});
+            }
+        }
+    };
 </script>
 
 <template>
     <main>
         <nav class="columns is-gapless px-3 py-1">
-            <h1 id="logo" class="column is-clickable is-narrow is-flex is-align-items-center">
-                <img class="image is-rounded is-48x48" src="@/assets/images/logo-caca.png" alt="Logo do CACA">
-                <p class="is-size-7 has-text-start">
-                    CENTRO DE APOIO À<br>CRIANÇA E AO ADOSLESCENTE
-                </p>
+            <h1 id="logo" class="column is-clickable is-narrow">
+                <a href="/" class="is-flex is-align-items-center">
+                    <img class="image is-rounded is-48x48" src="@/assets/images/logo-caca.png" alt="Logo do CACA">
+                    <p class="is-size-7 has-text-start">
+                        CENTRO DE APOIO À<br>CRIANÇA E AO ADOSLESCENTE
+                    </p>
+                </a>
             </h1>
             <div class="column is-flex is-align-items-center is-justify-content-center">
                 <ul class="is-flex">
-                    <li class="is-clickable menu-selecionado">HOME</li>
-                    <li class="is-clickable">SOBRE</li>
-                    <li class="is-clickable">PROJETOS</li>
-                    <li class="is-clickable">NOTÍCIAS</li>
-                    <li class="is-clickable">CONTATO</li>
+                    <li class="is-clickable" :class="{ 'menu-selecionado': secaoAtiva === 'banner-frase' }">
+                        <a @click="scrollToSection('banner-frase')">HOME</a>
+                    </li>
+                    <li class="is-clickable" :class="{ 'menu-selecionado': secaoAtiva === 'container-sobre-nos' }">
+                        <a @click="scrollToSection('container-sobre-nos')">SOBRE</a>
+                    </li>
+                    <li class="is-clickable" :class="{ 'menu-selecionado': secaoAtiva === 'container-projetos' }">
+                        <a @click="scrollToSection('container-projetos')">PROJETOS</a>
+                    </li>
+                    <li class="is-clickable" :class="{ 'menu-selecionado': secaoAtiva === 'container-noticias' }">
+                        <a @click="scrollToSection('container-noticias')">NOTÍCIAS</a>
+                    </li>
+                    <li class="is-clickable" :class="{ 'menu-selecionado': secaoAtiva === 'container-contato' }">
+                        <a @click="scrollToSection('container-contato')">CONTATO</a>
+                    </li>
                 </ul>
             </div>
             <div class="column is-flex is-align-items-center is-narrow">
                 <a id="btn-login" class="px-4 py-2" href="#">LOGIN</a>
             </div>
         </nav>
-        <section class="banner-frase is-flex is-justify-content-center is-align-items-center">
+        <section id="banner-frase" class="is-flex is-justify-content-center is-align-items-center">
             <div class="is-flex is-flex-direction-column">
                 <h2 id="frase-efeito" class="has-text-centered mb-4">
                     "O futuro da humanidade repousa nos ombros das crianças, 
@@ -265,14 +293,14 @@
                         Quase 30 anos cuidando do desenvolvimento de centenas de crianças e adolescentes.
                     </p>
                     <div class="is-flex">
-                        <a href="">
-                            <img class="image is-32x32 mr-3" src="@/assets/images/whatsapp.png" alt="Icone Whatsapp">
+                        <a href="" class="mr-3 is-flex is-align-items-center">
+                            <img src="@/assets/images/whatsapp.png" alt="Icone Whatsapp" width="32">
                         </a>
-                        <a href="">
-                            <img class="image is-32x32 mr-3" src="@/assets/images/instagram.png" alt="Icone Instagram">
+                        <a href="" class="mr-3 is-flex is-align-items-center">
+                            <img src="@/assets/images/instagram.png" alt="Icone Instagram" width="28">
                         </a>
-                        <a href="">
-                            <img class="image" src="@/assets/images/email.png" alt="Icone Email" width="35">
+                        <a href="" class="is-flex is-align-items-center">
+                            <img src="@/assets/images/email.png" alt="Icone Email" width="35">
                         </a>
                     </div>
                 </div>
@@ -308,31 +336,35 @@
 
 <style scoped>
     nav {
+        top: 0;
+        z-index: 5;
+        position: sticky;
         font-size: smaller;
+        background-color: #fff;
         margin-bottom: 0 !important;
     }
 
     #btn-login {
-        background-color: var(--verde-principal);
+        background-color: #00A8A8;
         border-radius: 25px;
         color: #fff;
     }
 
     #btn-login:hover {
-        border: 1px solid var(--verde-principal);
-        color: var(--verde-principal);
+        border: 1px solid #00A8A8;
         background-color: #fff;
+        color: #00A8A8;
     }
 
     nav li:not(:last-child) {
         margin-right: 30px;
     }
 
-    nav li:hover, .menu-selecionado, #logo {
-        color: var(--verde-principal);
+    nav li:hover, .menu-selecionado a, #logo, h1 a, li a:hover {
+        color: #00A8A8;
     }
 
-    .banner-frase {
+    #banner-frase {
         background-image: url('@/assets/images/capa-caca3.jpg');
         background-position: center center;
         background-repeat: no-repeat;
@@ -489,7 +521,7 @@
     }
 
     #container-comoAjudar h2, #container-comoAjudar span{
-        color: var(--verde-principal);
+        color: #00A8A8;
     }
 
     #container-comoAjudar img {
@@ -497,7 +529,7 @@
     }
 
     #container-contato {
-        background-color: var(--verde-principal);
+        background-color: #00A8A8;
         color: #fff;
     }
 
