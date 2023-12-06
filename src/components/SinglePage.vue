@@ -132,7 +132,7 @@
                 <h2 class="is-size-3">PROJETOS</h2>
             </div>
             <div class="px-1">
-                <div class="is-flex is-justify-content-space-evenly mb-6">
+                <div class="linha-projetos is-flex is-justify-content-space-evenly">
                     <div class="card-projeto">
                         <img src="@/assets/images/aula-teclado.png" alt="Foto da aula de teclado">
                         <div class="is-flex is-justify-content-center is-align-items-center is-flex-direction-column px-3">
@@ -156,7 +156,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="is-flex is-justify-content-space-between">
+                <div class="linha-projetos is-flex is-justify-content-space-between">
                     <div class="card-projeto">
                         <img src="@/assets/images/aula-capoeira.png" alt="Foto da aula de teclado">
                         <div class="is-flex is-justify-content-center is-align-items-center is-flex-direction-column px-3">
@@ -168,7 +168,7 @@
                             </p>
                         </div>
                     </div>
-                    <div class="card-projeto">
+                    <div class="card-projeto mb-0">
                         <img src="@/assets/images/aula-karate.png" alt="">
                         <div class="is-flex is-justify-content-center is-align-items-center is-flex-direction-column px-3">
                             <p class="titulo-card-projeto">AULA DE KARATÊ</p>
@@ -185,7 +185,7 @@
         <section id="container-noticias" class="section-conteudo">
             <div class="is-flex is-justify-content-center is-align-items-center is-flex-direction-column mb-5">
                 <span class="mb-1"></span>
-                <h2 class="is-size-3">ÚLTIMAS NOTÍCIAS</h2>
+                <h2 class="is-size-3 has-text-centered">ÚLTIMAS NOTÍCIAS</h2>
             </div>
             <div class="container-conteudo-noticias columns is-multiline">
                 <div class="card-noticia column is-full is-flex mb-5 p-0">
@@ -457,6 +457,7 @@
         height: 400px;
         color: #fff;
         border-radius: 20px;
+        margin-bottom: 40px;
         background-color: rgba(000, 000, 000, 25%);
     }
 
@@ -567,7 +568,37 @@
         }
     }
 
+    @media screen and (min-width: 769px) and (max-width: 899px) {
+        .linha-projetos {
+            justify-content: space-around !important;
+        }
+        .card-projeto {
+            width: 310px;
+        }
+    }
+
+    @media screen and (min-width: 481px) and (max-width: 768px) {
+        .linha-projetos {
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+
     @media screen and (max-width: 480px) {
+        #frase-efeito {
+            font-size: 20px;
+            line-height: 27px;
+        }
+
+        #autor-frase-efeito {
+            font-size: 12px;
+        }
+        
+        .linha-projetos {
+            flex-direction: column;
+            align-items: center;
+        }
+
         #container-comoAjudar img {
             max-width: 100%;
         }
@@ -578,6 +609,12 @@
 
         footer {
             font-size: x-small;
+        }
+    }
+
+    @media screen and (max-width: 400px) {
+        .card-projeto {
+            width: 100%;
         }
     }
 
