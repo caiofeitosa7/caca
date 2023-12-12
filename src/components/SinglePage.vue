@@ -180,7 +180,7 @@
                     <div class="card-projeto">
                         <img src="@/assets/images/aula-teclado.png" alt="Foto da aula de teclado">
                         <div class="is-flex is-justify-content-center is-align-items-center is-flex-direction-column px-3">
-                            <p class="titulo-card-projeto">AULA DE TECLADO</p>
+                            <p class="titulo-card-projeto">OFICINA DE TECLADO</p>
                             <p class="conteudo-card-projeto">
                                 As crianças descobrem o mundo da música por meio das teclas do teclado! 
                                 A oficina de teclado é projetado para crianças e adolescentes que desejam 
@@ -191,7 +191,7 @@
                     <div class="card-projeto">
                         <img src="@/assets/images/aula-informatica.png" alt="Foto da aula de informática">
                         <div class="is-flex is-justify-content-center is-align-items-center is-flex-direction-column px-3">
-                            <p class="titulo-card-projeto">AULA DE INFORMÁTICA</p>
+                            <p class="titulo-card-projeto">OFICINA DE INFORMÁTICA</p>
                             <p class="conteudo-card-projeto">
                                 O curso oferece uma jornada empolgante para explorar o vasto mundo da tecnologia. 
                                 De conceitos básicos a habilidades avançadas, nossas aulas proporcionam uma educação 
@@ -204,7 +204,7 @@
                     <div class="card-projeto">
                         <img src="@/assets/images/aula-capoeira.png" alt="Foto da aula de capoeira">
                         <div class="is-flex is-justify-content-center is-align-items-center is-flex-direction-column px-3">
-                            <p class="titulo-card-projeto">AULA DE CAPOEIRA</p>
+                            <p class="titulo-card-projeto">OFICINA DE CAPOEIRA</p>
                             <p class="conteudo-card-projeto">
                                 O mundo da capoeira é onde a dança se encontra com a luta, a música e a cultura. 
                                 Maneira divertida e enriquecedora de promover a saúde física e mental, bem como 
@@ -215,7 +215,7 @@
                     <div class="card-projeto mb-0">
                         <img src="@/assets/images/aula-karate.png" alt="Foto da aula de karate">
                         <div class="is-flex is-justify-content-center is-align-items-center is-flex-direction-column px-3">
-                            <p class="titulo-card-projeto">AULA DE KARATÊ</p>
+                            <p class="titulo-card-projeto">OFICINA DE KARATÊ</p>
                             <p class="conteudo-card-projeto">
                                 Nossas aulas de karatê são uma oportunidade de fortalecer tanto o corpo quanto 
                                 a mente, preparando as crianças e promovendo valores como foco, disciplina, 
@@ -253,6 +253,10 @@
                             dessas crianças. Além disso, houve o destaque da história do voluntário Jardel, que um dia 
                             foi beneficiário do projeto, hoje retorna para oferecer seu tempo e talento, completando um 
                             ciclo inspirador de solidariedade. 📺&nbsp;&nbsp;&nbsp;#TVClube&nbsp;&nbsp;&nbsp;#TransformaçãoDeVidas
+                            <br>
+                            <a href="https://globoplay.globo.com/v/12183019/" target="_blank" rel="noopener noreferrer" style="color: #FF788D;">
+                                Link da reportagem
+                            </a>
                         </p>
                     </div>
                 </div>
@@ -278,6 +282,10 @@
                             nossas despensas, mas também nutriu a esperança e a solidariedade no coração de cada um, 
                             recordando-nos do poder transformador que a comunidade pode ter quando se une por uma 
                             causa tão nobre. 🤝💖&nbsp;&nbsp;&nbsp;#TVClube&nbsp;&nbsp;&nbsp;#ComunidadeUnida
+                            <br>
+                            <a href="https://globoplay.globo.com/v/12153379/" target="_blank" rel="noopener noreferrer" style="color: #FF788D;">
+                                Link da reportagem
+                            </a>
                         </p>
                     </div>
                 </div>
