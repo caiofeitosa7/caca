@@ -66,7 +66,7 @@
                 </ul>
             </div>
             <div class="column is-flex is-align-items-center is-narrow">
-                <a id="btn-login" class="px-4 py-2" href="#">LOGIN</a>
+                <a id="btn-login" class="px-4 py-2" href="#" hidden>LOGIN</a>
             </div>
             <div class="column is-flex is-align-items-center">
                 <img @click="toggleMenu" class="is-clickable" src="@/assets/images/icon-menu.png" alt="Menu">
@@ -136,38 +136,39 @@
             </div>
             <p>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ornare gravida aliquam. 
-                Duis a ornare lorem. Curabitur hendrerit vulputate elit, vel sodales neque sollicitudin ac. 
-                Sed non ultricies nibh. Vestibulum venenatis, ligula vel laoreet dapibus, purus est lobortis 
-                ipsum, faucibus fermentum nibh ligula eget elit. Cras feugiat mi at quam venenatis, et pulvinar
-                enim faucibus. Vestibulum a eros blandit, bibendum felis et, rhoncus nulla. Etiam lectus est, 
-                viverra in rhoncus nec, maximus id ex.
+                A trajetória teve início no ano de 1995, quando a Igreja Católica Santa Terezinha do Menino Jesus 
+                mobilizou diversos grupos de fiéis com o propósito de realizar ações missionárias de caráter 
+                emergencial na sociedade. Esse movimento despertou em Dona Lurdinha, especialmente após tomar 
+                conhecimento da trágica morte de dois jovens da comunidade em decorrência de crimes, a determinação 
+                de auxiliar crianças e adolescentes, proporcionando-lhes a chance de um futuro mais promissor.
             </p>
             <div class="columns is-gapless mb-0">
                 <p class="column">
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    Praesent a lectus sollicitudin, ornare nisi vitae, tempus nisl. Pellentesque eget nibh leo. 
-                    Mauris sit amet vehicula ante. Phasellus rhoncus ac nunc vitae sit ullamcorper. Duis congue 
-                    vehicula ac nunc tempor. Phasellus vel diam ac turpis maximus de semper. Maecenas sagittis 
-                    commodo velit, ut euismod diam facilisis malesuada. Praesent fringilla posuere massa at ornare. 
-                    Pellentesque sollicitudin dui vel risus suscipit porta sit amet at ante. Nulla mollis ultricies 
-                    diam, non eleifend risus cursus eu. Nullam quis nibh ligula. Aliquam at urna in arcu placerat 
-                    vestibulum. Fusce blandit eros et purus accumsan molestie. Sed tellus risus, bibendum et consequat 
-                    id, fringilla in tellus. Sed sed libero a mi vehicula tincidunt vitae gravida tortor. Nullam id 
-                    eleifend massa. Etiam eu euismod dui, a luctus lectus. Quisque hendrerit risus et iaculis varius.
+                    Durante mais de 30 anos dedicados ao trabalho na Maternidade Dona Evangelina Rosa, Dona Lurdinha 
+                    teve a oportunidade de conhecer a doutora Onesima Nascimento, uma figura que se destacou como a 
+                    principal incentivadora do projeto. Em sinal de homenagem e profunda gratidão, o projeto foi 
+                    batizado com o nome da médica.<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    O local que hoje abriga nossa sede, anteriormente residência de Dona Lurdinha, agora dispõe de três salas de 
+                    aula, dois banheiros, uma secretaria, uma cozinha e um pátio. Nesse espaço, proporcionamos esporte, 
+                    lazer, evangelização e suporte escolar a aproximadamente 100 crianças e adolescentes diariamente. 
+                    No momento, 18 voluntários dedicam-se diariamente para assegurar o pleno funcionamento da instituição, 
+                    que opera de segunda a sábado nos períodos da manhã e tarde. Oferecemos oficinas de teclado, capoeira, 
+                    informática, karatê, além do acompanhamento escolar.
                 </p>
                 <div class="column is-flex is-justify-content-center is-align-items-center">
                     <img src="@/assets/images/time2.svg" alt="Time" width="300" height="300">
                 </div>
             </div>
-            <p>
+            <!-- <p>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 Integer pharetra tempus lectus ultrices ornare. Sed accumsan, sem non cursus malesuada, sem purus 
                 suscipit velit, sed dapibus ex nisl ac nisl. Ut tellus ipsum, feugiat a justo eu, bibendum varius dolor. 
                 Sed tellus risus, bibendum et consequat id, fringilla in tellus. Sed sed libero a mi vehicula tincidunt 
                 vitae gravida tortor. Nullam id eleifend massa. Etiam eu euismod dui, a luctus lectus. Quisque hendrerit 
                 risus et iaculis varius.
-            </p>
+            </p> -->
         </section>
         <section id="container-projetos" class="section-conteudo">
             <div class="is-flex is-justify-content-center is-align-items-center is-flex-direction-column mb-5">
@@ -179,7 +180,7 @@
                     <div class="card-projeto">
                         <img src="@/assets/images/aula-teclado.png" alt="Foto da aula de teclado">
                         <div class="is-flex is-justify-content-center is-align-items-center is-flex-direction-column px-3">
-                            <p class="titulo-card-projeto">OFICINA DE TECLADO</p>
+                            <p class="titulo-card-projeto">AULA DE TECLADO</p>
                             <p class="conteudo-card-projeto">
                                 As crianças descobrem o mundo da música por meio das teclas do teclado! 
                                 A oficina de teclado é projetado para crianças e adolescentes que desejam 
@@ -188,9 +189,9 @@
                         </div>
                     </div>
                     <div class="card-projeto">
-                        <img src="@/assets/images/aula-informatica.png" alt="">
+                        <img src="@/assets/images/aula-informatica.png" alt="Foto da aula de informática">
                         <div class="is-flex is-justify-content-center is-align-items-center is-flex-direction-column px-3">
-                            <p class="titulo-card-projeto">OFICINA DE COMPUTAÇÃO</p>
+                            <p class="titulo-card-projeto">AULA DE INFORMÁTICA</p>
                             <p class="conteudo-card-projeto">
                                 O curso oferece uma jornada empolgante para explorar o vasto mundo da tecnologia. 
                                 De conceitos básicos a habilidades avançadas, nossas aulas proporcionam uma educação 
@@ -201,7 +202,7 @@
                 </div>
                 <div class="linha-projetos is-flex is-justify-content-space-between">
                     <div class="card-projeto">
-                        <img src="@/assets/images/aula-capoeira.png" alt="Foto da aula de teclado">
+                        <img src="@/assets/images/aula-capoeira.png" alt="Foto da aula de capoeira">
                         <div class="is-flex is-justify-content-center is-align-items-center is-flex-direction-column px-3">
                             <p class="titulo-card-projeto">AULA DE CAPOEIRA</p>
                             <p class="conteudo-card-projeto">
@@ -212,7 +213,7 @@
                         </div>
                     </div>
                     <div class="card-projeto mb-0">
-                        <img src="@/assets/images/aula-karate.png" alt="">
+                        <img src="@/assets/images/aula-karate.png" alt="Foto da aula de karate">
                         <div class="is-flex is-justify-content-center is-align-items-center is-flex-direction-column px-3">
                             <p class="titulo-card-projeto">AULA DE KARATÊ</p>
                             <p class="conteudo-card-projeto">
@@ -232,39 +233,41 @@
             </div>
             <div class="container-conteudo-noticias columns is-multiline">
                 <div class="card-noticia column is-full is-flex mb-5 p-0">
-                    <img src="@/assets/images/natal.png" alt="">
+                    <img src="@/assets/images/piaui-riquezas.png" alt="">
                     <div class="px-5 py-5">
                         <div class="is-flex is-justify-content-space-between mb-4">
                             <p class="titulo-card-noticia">
-                                Celebração de Natal: "Brilho nas Estrelas" 🌟🎄
+                                Programa Piauí de Riquezas: Valorizando a Generosidade 📺🌟
                             </p>
-                            <p class="data-noticia">26/12/2023</p>
+                            <p class="data-noticia">09/12/2023</p>
                         </div>
                         <p class="is-text-center has-text-centered">
-                            Integer efficitur sed dui nec porta. Pellentesque pulvinar commodo mi ut accumsan. 
-                            Donec pellentesque velit tortor, ullamcorper dignissim ex feugiat in. Etiam ac 
-                            ante a arcu tristique semper nec vitae justo. Sed aliquam felis felis, vel 
-                            sollicitudin nisi lobortis vitae. Cras gravida, nisi eget vehicula imperdiet. Fusce ut lectus arcu. 
-                            Nullam sagittis luctus velit, et vulputate ex congue luctus. Integer nec nisl non 
-                            nunc mollis lacinia nec eu mi luctus.
+                            O Programa Piauí de Riquezas, que viaja por todo Piauí, desembarcou em nossa instituição 
+                            explorando os corações acolhedores que formam o tecido da nossa comunidade. Ao compartilhar 
+                            nossa história, o programa apresentou as atividades diárias que moldam o presente e o futuro 
+                            dessas crianças. Além disso, houve o destaque da história do voluntário Jardel, que um dia 
+                            foi beneficiário do projeto, hoje retorna para oferecer seu tempo e talento, completando um 
+                            ciclo inspirador de solidariedade. 📺&nbsp;&nbsp;&nbsp;#TVClube&nbsp;&nbsp;&nbsp;#TransformaçãoDeVidas
                         </p>
                     </div>
                 </div>
                 <div class="card-noticia column is-full is-flex mb-5 p-0">
-                    <img src="@/assets/images/doacao.png" alt="">
+                    <img src="@/assets/images/prato-cheio.png" alt="">
                     <div class="px-5 py-5">
                         <div class="is-flex is-justify-content-space-between mb-4">
                             <p class="titulo-card-noticia">
-                                Doação de Alimentos - Espalhando Amor e Nutrição 🥫❤️
+                                Prato Cheio: Nutrindo Corações com Solidariedade 🍽️❤️
                             </p>
-                            <p class="data-noticia">26/12/2023</p>
+                            <p class="data-noticia">29/11/2023</p>
                         </div>
                         <p class="is-text-center has-text-centered">
-                            Cada doação de alimentos é um ato de bondade que faz a diferença na vida de alguém. 
-                            Fazemos o possível para ajudar a nutrir corações e estômagos famintos, e demonstrar 
-                            o verdadeiro espírito de solidariedade. Juntos, podemos tornar o mundo um lugar mais 
-                            caloroso e acolhedor. Faça parte desta causa e ajude-nos a espalhar amor para estas 
-                            crianças e suas famílias.
+                            A Campanha Prato Cheio, promovida pela TV Clube, abraçou nossa instituição com uma 
+                            generosidade imensurável. Ao longo de vários dias, testemunhamos uma onda de solidariedade 
+                            varrendo todo o estado do Piauí e nossa instituição, com imensa gratidão, foi escolhida 
+                            como uma das beneficiárias desses gestos de bondade. Essa corrente de compaixão não apenas encheu 
+                            nossas despensas, mas também nutriu a esperança e a solidariedade no coração de cada um, 
+                            recordando-nos do poder transformador que a comunidade pode ter quando se une por uma 
+                            causa tão nobre. 🤝💖&nbsp;&nbsp;&nbsp;#TVClube&nbsp;&nbsp;&nbsp;#ComunidadeUnida
                         </p>
                     </div>
                 </div>
@@ -275,20 +278,21 @@
                             <p class="titulo-card-noticia">
                                 Dia das Crianças: Uma Jornada de Diversão e Aprendizado 🎈🎉
                             </p>
-                            <p class="data-noticia">26/12/2023</p>
+                            <p class="data-noticia">12/10/2023</p>
                         </div>
                         <p class="is-text-center has-text-centered">
-                            Integer efficitur sed dui nec porta. Pellentesque pulvinar commodo mi ut accumsan. 
-                            Donec pellentesque velit tortor, ullamcorper dignissim ex feugiat in. Etiam ac ante 
-                            a arcu tristique semper nec vitae justo. Sed aliquam felis felis, vel sollicitudin 
-                            nisi lobortis vitae. Cras gravida, nisi eget vehicula imperdiet ac bibendum lorem 
-                            orci et metus. Nullam sagittis luctus velit, et vulputate ex congue luctus.
+                            No dia das crianças, os grupos Rotary e Rotaract iluminaram nossa instituição 
+                            com a magia da generosidade e alegria. Suas brincadeiras cativantes, doações 
+                            generosas e presença calorosa trouxeram sorrisos radiantes aos rostinhos dos 
+                            nossos pequenos. Agradecemos profundamente por tornarem esse dia tão especial 
+                            e inesquecível, criando memórias preciosas que certamente ficarão gravadas em 
+                            nossos corações. 🌟🎁 #Gratidão
                         </p>
                     </div>
                 </div>
-                <div id="btnMaisNoticias" class="is-flex is-justify-content-center is-align-items-center">
+                <!-- <div id="btnMaisNoticias" class="is-flex is-justify-content-center is-align-items-center">
                     <a href="#">Mais Notícias</a>
-                </div>
+                </div> -->
             </div>
         </section>
         <section id="container-comoAjudar" class="section-conteudo">
@@ -332,16 +336,16 @@
                         <img class="is-rounded" src="@/assets/images/logo-caca.png" alt="Logo do CACA">
                     </a>
                     <p class="has-text-centered my-5">
-                        Quase 30 anos cuidando do desenvolvimento de centenas de crianças e adolescentes.
+                        Quase 30 anos cuidando do desenvolvimento de milhares de crianças e adolescentes.
                     </p>
                     <div class="is-flex">
-                        <a href="" class="mr-3 is-flex is-align-items-center">
+                        <a href="https://wa.me/558699199364" class="mr-3 is-flex is-align-items-center">
                             <img src="@/assets/images/whatsapp.png" alt="Icone Whatsapp" width="32">
                         </a>
-                        <a href="" class="mr-3 is-flex is-align-items-center">
+                        <a href="https://www.instagram.com/projeto_caca/" class="mr-3 is-flex is-align-items-center">
                             <img src="@/assets/images/instagram.png" alt="Icone Instagram" width="28">
                         </a>
-                        <a href="" class="is-flex is-align-items-center">
+                        <a href="mailto:cacasatelitepi@gmail.com?subject=&body=" class="is-flex is-align-items-center">
                             <img src="@/assets/images/email.png" alt="Icone Email" width="35">
                         </a>
                     </div>
@@ -351,19 +355,25 @@
                     <p class="my-5">Envie sua mensagem via WhatsApp ou E-mail que retornaremos em breve!</p>
                     <div class="is-flex">
                         <img class="image is-16x16 mr-1 mb-2" src="@/assets/images/icon-whatsapp.png" alt="Icone branco do Whatsapp">
-                        <p>(86) 9 9999-9999</p>
+                        <p>(86) 9 9919-9364</p>
                     </div>
                     <div class="is-flex is-align-items-center">
                         <img class="image is-16x16 mr-1" src="@/assets/images/icon-email.png" alt="Icone branco do Whatsapp">
-                        <p>exemplo@gmail.com</p>
+                        <p>cacasatelitepi@gmail.com</p>
                     </div>
                 </div>
                 <div id="divEndereco" class="column is-flex is-flex-direction-column">
                     <p class="is-size-5">Nosso endereço :</p>
                     <ul class="my-5">
-                        <li>
+                        <li class="mb-3">
                             Rua Santa Quitéria, n° 4447, <br>
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Satélite, Teresina/PI, Brasil
+                        </li>
+                        <li>
+                            Veja no mapa acessando o 
+                            <a id="link-localizacao" href="https://www.google.com/maps/place/CACA-+Centro+De+Apoio+a+Crian%C3%A7a+e+ao+Adolescente/@-5.0518442,-42.7563402,15z/data=!4m6!3m5!1s0x78e3ba52d0f5f15:0x6430dd44f2397e5!8m2!3d-5.0518442!4d-42.7563402!16s%2Fg%2F11cmc2s7w_?entry=ttu" target="_blank">
+                                link
+                            </a>.
                         </li>
                     </ul>
                     <img class="image" src="@/assets/images/mapa-caca.png" alt="Icone Email">
@@ -505,6 +515,7 @@
 
     .card-projeto img {
         border-radius: 20px 20px 0 0;
+        height: 186px;
     }
 
     .card-projeto .titulo-card-projeto {
@@ -535,6 +546,7 @@
 
     .card-noticia img {
         height: 100%;
+        width: 337.6px;
         border-radius: 15px 0 0 15px;
     }
 
@@ -582,6 +594,10 @@
 
     #container-contato ul {
         list-style: inside;
+    }
+
+    #link-localizacao {
+        color: rgb(255, 192, 115);
     }
 
     footer {
