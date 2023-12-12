@@ -233,10 +233,15 @@
             </div>
             <div class="container-conteudo-noticias columns is-multiline">
                 <div class="card-noticia column is-full is-flex mb-5 p-0">
-                    <img src="@/assets/images/piaui-riquezas.png" alt="">
-                    <div class="px-5 py-5">
+                    <div class="container-imagem">
+                        <p class="titulo-card-noticia-left">
+                                Programa Piauí de Riquezas: Valorizando a Generosidade 📺🌟
+                        </p>
+                        <img src="@/assets/images/piaui-riquezas.png" alt="Dona Lurdinha dando entrevista para o Programa Piauí de Riquezas">
+                    </div>
+                    <div class="container-conteudo px-5 py-5">
                         <div class="is-flex is-justify-content-space-between mb-4">
-                            <p class="titulo-card-noticia">
+                            <p class="titulo-card-noticia-right">
                                 Programa Piauí de Riquezas: Valorizando a Generosidade 📺🌟
                             </p>
                             <p class="data-noticia">09/12/2023</p>
@@ -252,10 +257,15 @@
                     </div>
                 </div>
                 <div class="card-noticia column is-full is-flex mb-5 p-0">
-                    <img src="@/assets/images/prato-cheio.png" alt="">
-                    <div class="px-5 py-5">
+                    <div class="container-imagem">
+                        <p class="titulo-card-noticia-left">
+                            Prato Cheio: Nutrindo Corações com Solidariedade 🍽️❤️
+                        </p>
+                        <img src="@/assets/images/prato-cheio.png" alt="Foto das doadoras conversando com as crianças do projeto">
+                    </div>
+                    <div class="container-conteudo px-5 py-5">
                         <div class="is-flex is-justify-content-space-between mb-4">
-                            <p class="titulo-card-noticia">
+                            <p class="titulo-card-noticia-right">
                                 Prato Cheio: Nutrindo Corações com Solidariedade 🍽️❤️
                             </p>
                             <p class="data-noticia">29/11/2023</p>
@@ -272,10 +282,15 @@
                     </div>
                 </div>
                 <div class="card-noticia column is-full is-flex mb-5 p-0">
-                    <img src="@/assets/images/dia-criancas.png" alt="">
-                    <div class="px-5 py-5">
+                    <div class="container-imagem">
+                        <p class="titulo-card-noticia-left">
+                            Dia das Crianças: Uma Jornada de Diversão e Aprendizado 🎈🎉
+                        </p>
+                        <img src="@/assets/images/dia-criancas.png" alt="Foto de todos reunidos no dia das crianças">
+                    </div>
+                    <div class="container-conteudo px-5 py-5">
                         <div class="is-flex is-justify-content-space-between mb-4">
-                            <p class="titulo-card-noticia">
+                            <p class="titulo-card-noticia-right">
                                 Dia das Crianças: Uma Jornada de Diversão e Aprendizado 🎈🎉
                             </p>
                             <p class="data-noticia">12/10/2023</p>
@@ -529,7 +544,7 @@
         text-align: center;
     }
 
-    #container-noticias h2, #container-noticias span, .titulo-card-noticia {
+    #container-noticias h2, #container-noticias span, .titulo-card-noticia-right, .titulo-card-noticia-left {
         color: #007CBF;
     }
 
@@ -542,6 +557,14 @@
         height: 230px;
         border-radius: 15px;
         box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .card-noticia .container-imagem {
+        display: contents;
+    }
+
+    .card-noticia .titulo-card-noticia-left {
+        display: none;
     }
 
     .card-noticia img {
@@ -607,9 +630,36 @@
 
     /* -------------------------------------------------------------------------- */
 
-    @media screen and (min-width: 769px) {
-        nav div:last-child{
-            display: none !important;
+    @media screen and (min-width: 769px) and (max-width: 1050px) {
+
+        .card-noticia {
+            height: auto;
+        }
+
+        .card-noticia .container-imagem {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            padding: 1.5rem 0 1.5rem 1.5rem;
+        }
+
+        .card-noticia .container-imagem img {
+            height: 70%;
+            border-radius: 7px 7px 7px 7px;
+        }
+
+        .card-noticia .container-conteudo div {
+            flex-direction: row-reverse;
+            margin-bottom: 1.5rem !important;
+        }
+
+        .card-noticia .titulo-card-noticia-left{
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .card-noticia .titulo-card-noticia-right{
+            display: none;
         }
     }
 
@@ -620,6 +670,12 @@
 
         .card-projeto {
             width: 310px;
+        }
+    }
+
+    @media screen and (min-width: 769px) {
+        nav div:last-child{
+            display: none !important;
         }
     }
 
@@ -675,6 +731,7 @@
 
         .card-noticia img {
             border-radius: 15px 15px 0 0;
+            width: auto;
         }
 
         .card-noticia .is-flex {
@@ -682,7 +739,7 @@
             align-items: center;
         }
 
-        .card-noticia .titulo-card-noticia {
+        .card-noticia .titulo-card-noticia-right {
             text-align: center;
         }
 
