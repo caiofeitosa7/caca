@@ -354,13 +354,13 @@
                         Quase 30 anos cuidando do desenvolvimento de milhares de crianças e adolescentes.
                     </p>
                     <div class="is-flex">
-                        <a href="https://wa.me/558699199364" class="mr-3 is-flex is-align-items-center">
+                        <a href="https://wa.me/558699199364" class="mr-3 is-flex is-align-items-center" target="_blank">
                             <img src="@/assets/images/whatsapp.png" alt="Icone Whatsapp" width="32">
                         </a>
-                        <a href="https://www.instagram.com/projeto_caca/" class="mr-3 is-flex is-align-items-center">
+                        <a href="https://www.instagram.com/projeto_caca/" class="mr-3 is-flex is-align-items-center" target="_blank">
                             <img src="@/assets/images/instagram.png" alt="Icone Instagram" width="28">
                         </a>
-                        <a href="mailto:cacasatelitepi@gmail.com?subject=&body=" class="is-flex is-align-items-center">
+                        <a href="mailto:cacasatelitepi@gmail.com?subject=&body=" class="is-flex is-align-items-center" target="_blank">
                             <img src="@/assets/images/email.png" alt="Icone Email" width="35">
                         </a>
                     </div>
