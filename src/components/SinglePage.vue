@@ -252,7 +252,7 @@
                             nossa história, o programa apresentou as atividades diárias que moldam o presente e o futuro 
                             dessas crianças. Além disso, houve o destaque da história do voluntário Jardel, que um dia 
                             foi beneficiário do projeto, hoje retorna para oferecer seu tempo e talento, completando um 
-                            ciclo inspirador de solidariedade. 📺&nbsp;&nbsp;&nbsp;#TVClube&nbsp;&nbsp;&nbsp;#TransformaçãoDeVidas
+                            ciclo inspirador de solidariedade. 📺 #TransformaçãoDeVidas
                             <br>
                             <a href="https://globoplay.globo.com/v/12183019/" target="_blank" rel="noopener noreferrer" style="color: #FF788D;">
                                 Link da reportagem
@@ -281,7 +281,7 @@
                             como uma das beneficiárias desses gestos de bondade. Essa corrente de compaixão não apenas encheu 
                             nossas despensas, mas também nutriu a esperança e a solidariedade no coração de cada um, 
                             recordando-nos do poder transformador que a comunidade pode ter quando se une por uma 
-                            causa tão nobre. 🤝💖&nbsp;&nbsp;&nbsp;#TVClube&nbsp;&nbsp;&nbsp;#ComunidadeUnida
+                            causa tão nobre. 🤝💖 📺 #ComunidadeUnida
                             <br>
                             <a href="https://globoplay.globo.com/v/12153379/" target="_blank" rel="noopener noreferrer" style="color: #FF788D;">
                                 Link da reportagem
