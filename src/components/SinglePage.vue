@@ -820,6 +820,8 @@
     @media screen and (max-width: 400px) {
         .card-projeto {
             width: 100%;
+            height: auto;
+            padding-bottom: 15px;
         }
 
         .card-noticia {
