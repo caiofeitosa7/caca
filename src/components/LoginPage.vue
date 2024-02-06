@@ -2,7 +2,7 @@
     export default {
         methods: {
             logarUsuario() {
-                alert('Função executada!');
+                // alert('Função executada!');
             }
         }
     };
