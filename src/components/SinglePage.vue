@@ -141,7 +141,32 @@
                 <div class="card-noticia column is-full is-flex mb-5 p-0">
                     <div class="container-imagem">
                         <p class="titulo-card-noticia-left">
-                                Programa Piauí de Riquezas: Valorizando a Generosidade 📺🌟
+                            Celebração de Carnaval: "Diversão e Solidariedade em Harmonia" 🎉
+                        </p>
+                        <img src="@/assets/images/carnaval.png" alt="Dona Lurdinha dando entrevista para o Programa Piauí de Riquezas">
+                    </div>
+                    <div class="container-conteudo px-5 py-5">
+                        <div class="is-flex is-justify-content-space-between mb-4">
+                            <p class="titulo-card-noticia-right">
+                                Celebração de Carnaval: "Diversão e Solidariedade em Harmonia" 🎊🎉
+                            </p>
+                            <p class="data-noticia">03/02/2024</p>
+                        </div>
+                        <p class="is-text-center has-text-centered">
+                            Hoje, realizamos nossa festa de Carnaval, e foi simplesmente incrível! 
+                            A energia contagiante, o ritmo do samba e os sorrisos estampados nos rostinhos  
+                            das nossas crianças tornaram o dia inesquecível. Um agradecimento especial ao 
+                            @rotaryclubthefatima pela generosa contribuição, fornecendo um lanche delicioso 
+                            que fez a alegria de nossos pequenos. Vocês são verdadeiramente parte da família 
+                            Projeto CACA. Também queremos expressar nossa gratidão a todos os voluntários dedicados 
+                            que trabalharam incansavelmente para garantir que tudo saísse perfeito. 🎊🎈 #CarnavalSolidário
+                        </p>
+                    </div>
+                </div>
+                <div class="card-noticia column is-full is-flex mb-5 p-0">
+                    <div class="container-imagem">
+                        <p class="titulo-card-noticia-left">
+                            Programa Piauí de Riquezas: Valorizando a Generosidade 📺🌟
                         </p>
                         <img src="@/assets/images/piaui-riquezas.png" alt="Dona Lurdinha dando entrevista para o Programa Piauí de Riquezas">
                     </div>
@@ -210,7 +235,7 @@
                             <p class="data-noticia">12/10/2023</p>
                         </div>
                         <p class="is-text-center has-text-centered">
-                            No dia das crianças, os grupos Rotary e Rotaract iluminaram nossa instituição 
+                            Hoje, no dia das crianças, os grupos Rotary e Rotaract iluminaram nossa instituição 
                             com a magia da generosidade e alegria. Suas brincadeiras cativantes, doações 
                             generosas e presença calorosa trouxeram sorrisos radiantes aos rostinhos dos 
                             nossos pequenos. Agradecemos profundamente por tornarem esse dia tão especial 
