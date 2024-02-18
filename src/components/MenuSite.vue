@@ -65,7 +65,7 @@
             </ul>
         </div>
         <div class="column is-flex is-align-items-center is-narrow">
-            <a id="btn-login" class="px-4 py-2" href="/login" hidden>LOGIN</a>
+            <a id="btn-login" class="px-4 py-2" href="/login">LOGIN</a>
         </div>
         <div class="column is-flex is-align-items-center">
             <img @click="toggleMenu" class="is-clickable" src="@/assets/images/icon-menu.png" alt="Menu">
@@ -88,9 +88,9 @@
             <li class="is-clickable" :class="{ 'menu-selecionado': secaoAtiva === 'container-contato' }">
                 <a @click="scrollToSection('container-contato')">CONTATO</a>
             </li>
-            <!-- <li class="is-clickable">
+            <li class="is-clickable">
                 <a href="/login">LOGIN</a>
-            </li> -->
+            </li>
         </ul>
     </div>
 </template>
