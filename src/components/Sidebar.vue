@@ -1,6 +1,6 @@
 <script>
 	import { ref } from 'vue';
-	import logoURL from '../../public/logo-caca-ico.png'
+	import logoURL from '/logo-caca-ico.png'
 
 	export default {
 		setup() {
@@ -73,8 +73,8 @@
 		display: flex;
 		flex-direction: column;
 
-		background-color: var(--dark);
-		color: var(--light);
+		background-color: var(--verde-escuro);
+		color: var(--branco);
 
 		width: calc(2rem + 32px);
 		overflow: hidden;
@@ -108,13 +108,13 @@
 			transition: 0.2s ease-in-out;
 			.material-icons {
 				font-size: 2rem;
-				color: var(--light);
+				color: var(--branco);
 				transition: 0.2s ease-out;
 			}
 			
 			&:hover {
 				.material-icons {
-					color: var(--primary);
+					color: var(--branco);
 					transform: translateX(0.5rem);
 				}
 			}
@@ -127,7 +127,7 @@
 	}
 
 	h3 {
-		color: var(--grey);
+		color: var(--verde-claro);
 		font-size: 0.875rem;
 		margin-bottom: 0.5rem;
 		text-transform: uppercase;
@@ -137,37 +137,42 @@
 		margin: 0 -1rem;
 
 		.button {
+			border: none;
 			display: flex;
 			align-items: center;
 			text-decoration: none;
-
 			transition: 0.2s ease-in-out;
 			padding: 0.5rem 1rem;
+			background-color: var(--verde-escuro);			
 
 			.material-icons {
 				font-size: 2rem;
-				color: var(--dark-alt);
+				color: var(--branco);
 				transition: 0.2s ease-in-out;
 			}
+
 			.text {
-				color: var(--light);
+				color: var(--branco);
 				transition: 0.2s ease-in-out;
 			}
 
 			&:hover {
-				background-color: var(--dark-alt);
+				background-color: var(--verde-escuro);
+				border: 1px solid var(--branco);
+				border-left: 5px solid var(--branco);
 
 				.material-icons, .text {
-					color: var(--primary);
+					color: var(--branco);
 				}
 			}
 
 			&.router-link-exact-active {
-				background-color: var(--dark-alt);
-				border-right: 5px solid var(--primary);
+				background-color: var(--verde-escuro);
+				border: 1px solid var(--branco);
+				border-left: 5px solid var(--branco);
 
 				.material-icons, .text {
-					color: var(--primary);
+					color: var(--branco);
 				}
 			}
 		}
@@ -179,12 +184,12 @@
 
 		p {
 			font-size: 0.875rem;
-			color: var(--grey);
+			color: var(--verde-claro);
 		}
 	}
 
 	&.is-expanded {
-		width: var(--sidebar-width);
+		width: 300px;
 
 		.menu-toggle-wrap {
 			top: -3rem;
@@ -210,7 +215,6 @@
 	}
 
 	@media (max-width: 1024px) {
-		// position: absolute;
 		z-index: 99;
 	}
 }

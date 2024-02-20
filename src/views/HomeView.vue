@@ -10,14 +10,13 @@
 </template>
 
 <style lang="scss">
-  :root {
-    --primary: #4ade80;
-    --primary-alt: #22c55e;
-    --grey: #64748b;
-    --dark: #1e293b;
-    --dark-alt: #334155;
-    --light: #f1f5f9;
-    --sidebar-width: 300px;
+  .container-home {
+    --principal: #3a595c;
+    --verde-claro: #7ba9a9;
+    --verde-escuro: #192e2f;
+    // --verde-escuro: #223e3f;
+    --branco: #f1f5f9;
+    --preto: #0b0b0b;
   }
 
   * {
@@ -28,7 +27,7 @@
   }
 
   body {
-    background: var(--light);
+    background: var(--branco);
   }
 
   .container-home {
