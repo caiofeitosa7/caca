@@ -15,7 +15,21 @@
 				logoURL,
 				toggleMenu
 			};
-		}
+		},
+		methods: {
+			emitirClick(componentName) {
+				this.$emit('item-menu-clicado', componentName);
+				this.isExpanded = false;
+
+				let buttons = document.querySelectorAll('.menu .button');
+				buttons.forEach(button => {
+					button.classList.remove('router-link-exact-active');
+				});
+
+				// Adicionar a classe "router-link-exact-active" ao elemento clicado
+				event.currentTarget.classList.add('router-link-exact-active');
+			},
+		},		
 	};
 </script>
 
@@ -35,34 +49,34 @@
 
         <h3>Menu</h3>
         <div class="menu">
-            <router-link to="/home" class="button">
+            <div @click="emitirClick('alunos')" class="button router-link-exact-active">
 				<i class='material-icons bx bxs-home'></i>
-				<span :class="{ 'text': true, 'hidden': !isExpanded }">Home</span>
-            </router-link>
-            <router-link to="/about" class="button">
+				<span :class="{ 'text': true, 'hidden': !isExpanded }">Alunos</span>
+            </div>
+			<div @click="emitirClick('voluntarios')" class="button">
 				<i class='material-icons bx bxs-home'></i>
-                <span :class="{ 'text': true, 'hidden': !isExpanded }">About</span>
-            </router-link>
-            <router-link to="/team" class="button">
-				<i class='material-icons bx bxs-home'></i>
-                <span :class="{ 'text': true, 'hidden': !isExpanded }">Team</span>
-            </router-link>
+				<span :class="{ 'text': true, 'hidden': !isExpanded }">Voluntarios</span>
+            </div>
         </div>
 
-        <div class="flex"></div>
+        <!-- <div class="flex"></div>
         
         <div class="menu">
-            <router-link to="/settings" class="button">
+            <div @click="emitirClick('configuracoes')" class="button">
 				<i class='material-icons bx bxs-home'></i>
-                <span :class="{ 'text': true, 'hidden': !isExpanded }">Settings</span>
-            </router-link>
-        </div>
+                <span :class="{ 'text': true, 'hidden': !isExpanded }">Configurações</span>
+            </div>
+        </div> -->
     </aside>
 </template>
 
 <style lang="scss" scoped>
 	.text {
 		display: inline-block;
+	}
+
+	.bi-chevron-double-right:hover {
+		color: var(--verde-claro)!important;
 	}
 
 	.hidden {
@@ -146,7 +160,7 @@
 			background-color: var(--verde-escuro);			
 
 			.material-icons {
-				font-size: 2rem;
+				font-size: 1.8rem;
 				color: var(--branco);
 				transition: 0.2s ease-in-out;
 			}
@@ -189,7 +203,7 @@
 	}
 
 	&.is-expanded {
-		width: 300px;
+		width: 280px;
 
 		.menu-toggle-wrap {
 			top: -3rem;

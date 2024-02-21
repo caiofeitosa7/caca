@@ -1,7 +1,6 @@
-<!-- <script setup>
+<script setup>
   import { RouterView } from 'vue-router'
-  import SiglePage from './components/SinglePage.vue'
-</script> -->
+</script>
 
 <template>
   <RouterView />
