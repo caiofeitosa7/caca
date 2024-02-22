@@ -14,7 +14,7 @@
         },
         methods: {
             fazerLogin() {
-                let url = 'http://127.0.0.1:8000/logar_usuario'
+                let url = 'http://192.168.0.27:5000/logar_usuario'
                 let dados = {
                     usuario: document.getElementById('usuario').value,
                     senha: document.getElementById('senha').value
@@ -30,6 +30,8 @@
                 .then((res) => res.json())
                 .then((dados) => {
                     if (dados.status === "success") {
+                        localStorage.setItem("usuario", dados.codigo);
+                        localStorage.setItem("tipo_acesso", dados.tipo_acesso)
                         window.location.href = '/home';
                     }
                     else {

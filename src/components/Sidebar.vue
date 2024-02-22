@@ -48,13 +48,13 @@
 
         <h3>Menu</h3>
         <div class="menu">
-            <div @click="emitirClick('alunos')" class="button router-link-exact-active">
-				<i class='material-icons bx bxs-home'></i>
+            <div @click="emitirClick('Alunos')" class="button router-link-exact-active">
+				<i class='material-icons bx bxs-book'></i>
 				<span :class="{ 'text': true, 'hidden': !isExpanded }">Alunos</span>
             </div>
-			<div @click="emitirClick('voluntarios')" class="button">
-				<i class='material-icons bx bxs-home'></i>
-				<span :class="{ 'text': true, 'hidden': !isExpanded }">Voluntarios</span>
+			<div @click="emitirClick('Voluntários')" class="button">
+				<i class='material-icons bx bxs-group'></i>
+				<span :class="{ 'text': true, 'hidden': !isExpanded }">Voluntários</span>
             </div>
         </div>
 
@@ -202,7 +202,7 @@
 	}
 
 	&.is-expanded {
-		width: 280px;
+		width: 300px;
 
 		.menu-toggle-wrap {
 			top: -3rem;
