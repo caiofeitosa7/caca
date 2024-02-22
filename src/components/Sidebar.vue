@@ -26,7 +26,6 @@
 					button.classList.remove('router-link-exact-active');
 				});
 
-				// Adicionar a classe "router-link-exact-active" ao elemento clicado
 				event.currentTarget.classList.add('router-link-exact-active');
 			},
 		},		

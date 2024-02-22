@@ -38,7 +38,10 @@
         --verde-claro: #7ba9a9;
         --verde-escuro: #192e2f;
         --branco: #f1f5f9;
-        --preto: #0b0b0b;
+        --preto: #101010;
+        
+        background-color: var(--branco);
+        color: var(--preto);
     }
 
     * {

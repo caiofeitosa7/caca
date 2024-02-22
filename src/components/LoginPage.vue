@@ -1,37 +1,58 @@
 <script>
-    export default {
-    methods: {
-        logarUsuario() {
-            window.location.href = '/home';
-            // let url = '/logar_usuario'
-            // let dados = {
-            //     usuario: document.getElementById('usuario').value,
-            //     senha: document.getElementById('senha').value
-            // };
+    import ModalMensagem from '../components/ModalMensagem.vue'
 
-            // fetch(url, {
-            //     method: 'POST',
-            //     headers: {
-            //         'Content-Type': 'application/json'
-            //     },
-            //     body: JSON.stringify(dados)
-            // })
-            // .then(response => {
-            //     if (!response.ok) {
-            //         throw new Error('Erro ao tentar fazer login');
-            //     }
-            //     window.location.href = '/home';
-            // })
-            // .catch(error => {
-            //     console.error('Erro:', error);
-            //     alert('Erro ao tentar fazer login');
-            // });
+    export default {
+        components: {
+            ModalMensagem
+        },
+        data() {
+            return {
+                showModal: false,
+                tituloModal: "",
+                conteudoModal: ""
+            };
+        },
+        methods: {
+            fazerLogin() {
+                let url = 'http://127.0.0.1:8000/logar_usuario'
+                let dados = {
+                    usuario: document.getElementById('usuario').value,
+                    senha: document.getElementById('senha').value
+                };
+
+                fetch(url, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(dados)
+                })
+                .then((res) => res.json())
+                .then((dados) => {
+                    if (dados.status === "success") {
+                        window.location.href = '/home';
+                    }
+                    else {
+                        this.showModal = true;
+                        this.tituloModal = "Acesso Negado!";
+                        this.conteudoModal = dados.mensagem;
+                    }
+                    console.log(this.conteudoModal)
+                })
+                .catch(error => {
+                    console.error('Erro:', error);
+                    alert('Erro ao tentar fazer login!');
+                });
+            },
+            closeModal() {
+                this.showModal = false;
+            }
         }
-    }
-};
+    };
 </script>
 
 <template>
+    <ModalMensagem :showModal="showModal" :titleModal="tituloModal" :contentModal="conteudoModal" @close="closeModal" />
     <div class="container-login">
 		<div class="wrap-login">
 			<div class="login-container-title">
@@ -44,11 +65,11 @@
 				</div>
 				<div class="wrap-input" data-validate="Password is required">
 					<label class="label-input" for="senha">Senha</label>
-					<input id="senha" class="input" type="password" placeholder="Digite sua senha">
+					<input id="senha" class="input" type="password" placeholder="Digite sua senha" @keydown.enter="fazerLogin">
 				</div>
 			</form>
 			<div class="container-login-form-btn">
-				<button @click="logarUsuario" class="login-form-btn">
+				<button @click="fazerLogin" class="login-form-btn">
 					Entrar
 				</button>
 			</div>
