@@ -4,13 +4,14 @@
     export default {
         data() {
             return {
-                listaVoluntarios: {}
+                listaVoluntarios: {},
+                url: 'http://192.168.0.27:5000/listar_voluntarios'
             };
         },
         methods: {
             async carregarVoluntarios() {
                 try {
-                    const response = await axios.get('http://192.168.0.27:5000/listar_voluntarios');
+                    const response = await axios.get(this.url);
                     this.listaVoluntarios = response.data;
                 } catch (error) {
                     console.error('Erro ao carregar voluntários:', error);
@@ -18,8 +19,8 @@
             },
             async filtrarVoluntarios(){
                 try {
-                    const response = await axios.post('http://192.168.0.27:5000/listar_voluntarios', {
-                    nome_voluntario: document.getElementById("nome").value
+                    const response = await axios.post(this.url, {
+                        nome_voluntario: document.getElementById("nome").value
                     });
                     this.listaVoluntarios = response.data;
                 } catch (error) {
@@ -42,7 +43,7 @@
         <div class="container-filtro is-flex is-align-items-center is-justify-content-space-between mb-4">
             <div id="filtro" class="is-flex is-align-items-center">
                 <label for="nome" class="font-weight-600 mr-2">
-                    Pesquisar por nome:
+                    Nome:
                 </label>
                 <input id="nome" class="input is-success">
                 <button id="btnPesquisar" class="is-flex is-align-items-center" @click="filtrarVoluntarios">
@@ -55,17 +56,19 @@
             <button id="btnAdicionarVoluntario" class="is-flex is-align-items-center">
                 <i class='bx bxs-user-plus'></i>
             </button>
-            
         </div>
         <div class="tabela" v-if="this.listaVoluntarios">
             <div class="cabecalho columns is-mobile mb-0">
                 <span class="column is-1 text-align-center">Código</span>
                 <span class="column is-4">Nome</span>
+                <span class="column is-2">Função</span>
+                <span class="column is-4">Disponibilidade</span>
             </div>
-            <div class="linha columns is-mobile" v-for="(voluntario, index) in this.listaVoluntarios" :key="index">
+            <div class="linha clicavel columns is-mobile" v-for="(voluntario, index) in this.listaVoluntarios" :key="index">
                 <span class="column is-1 text-align-center">{{ voluntario.codigo }}</span>
                 <span class="column is-4">{{ voluntario.nome }}</span>
-
+                <span class="column is-2">{{ voluntario.funcao }}</span>
+                <span class="column is-4">{{ voluntario.disponivel }}</span>
             </div>
         </div>
         <p class="mt-4" v-else>Não há voluntários para exibir!</p>
@@ -73,12 +76,6 @@
 </template>
 
 <style scoped>
-    .input.is-success {
-        border-color: var(--verde-claro);
-        background-color: #f2f2f2;
-        font-size: small;
-    }
-
     .container-filtro {
         span {
             align-self: center;
@@ -117,22 +114,25 @@
                     background-color: var(--verde-escuro);
                 }
             }
-        }
-
-        
+        }        
     }
 
     .tabela {
         .cabecalho {
+            border-radius: 7px 7px 0 0;
             background: var(--verde-escuro);
             color: var(--branco);
+            font-weight: 600;
             padding: 10px 5px;
-            border-radius: 7px 7px 0 0;
         }
 
         .linha {
             padding: 10px 5px;
             border-bottom: 2px solid var(--branco);
+
+            &:hover {
+                background-color: var(--branco);
+            }
         }
 
         span {

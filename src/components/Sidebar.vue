@@ -85,15 +85,11 @@
 	aside {
 		display: flex;
 		flex-direction: column;
-
 		background-color: var(--verde-escuro);
 		color: var(--branco);
-
 		width: calc(2rem + 32px);
-		overflow: hidden;
 		min-height: 100vh;
 		padding: 1rem;
-
 		transition: 0.2s ease-in-out;
 
 		.flex {
@@ -202,7 +198,7 @@
 	}
 
 	&.is-expanded {
-		width: 300px;
+		width: 290px;
 
 		.menu-toggle-wrap {
 			top: -3rem;
