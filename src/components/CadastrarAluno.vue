@@ -59,9 +59,9 @@
 </script>
 
 <template>
-    <div class="columns is-mobile mx-1">
-        <div class="container-dependentes column is-8">
-            <div class="bloco-dependente">
+    <div class="columns is-mobile m-3">
+        <div class="container-dependentes column is-8 p-0 mr-2">
+            <div class="bloco-dependente mb-5 mr-1">
                 <div class="columns is-mobile">
                     <div class="container-foto">
                         <img id="foto-perfil" src="" alt="">
@@ -75,7 +75,7 @@
                             </div>
                             <div class="column is-4">
                                 <label for="dt_nascimento">Data de Nascimento:</label>
-                                <input id="dt_nascimento" class="input is-success mt-1" type="date" v-on:blur="calcularIdade">
+                                <input id="dt_nascimento" class="input is-success mt-1" type="date" v-on:blur="calcularIdade" />
                             </div>
                         </div>
                         <div class="columns mb-0">
@@ -106,6 +106,101 @@
                             <div class="column is-4">
                                 <label for="cpf" >CPF:</label>
                                 <input id="cpf" class="input is-success mt-1">
+                            </div>
+                            <div class="column is-8">
+                                <label for="observacao" >Observação:</label>
+                                <input id="observacao" class="input is-success mt-1">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container-oficinas pt-2">
+                    <div class="is-flex is-justify-content-center">
+                        <label class="negrito">OFICINAS</label>
+                    </div>
+                    <div class="columns is-multiline is-mobile my-4">
+                        <div class="column is-6 py-2">
+                            <label class="checkbox">
+                                <input type="checkbox" class="mr-1">
+                                Acompanhamento Escolar (Manhã)
+                            </label>
+                        </div>
+                        <div class="column is-6 py-2">
+                            <label class="checkbox">
+                                <input type="checkbox" class="mr-1">
+                                Acompanhamento Escolar (Tarde)
+                            </label>
+                        </div>
+                        <div class="column is-6 py-2">
+                            <label class="checkbox">
+                                <input type="checkbox" class="mr-1">
+                                Oficina de Teclado (Quarta - Manhã)
+                            </label>
+                        </div>
+                        <div class="column is-6 py-2">
+                            <label class="checkbox">
+                                <input type="checkbox" class="mr-1">
+                                Oficina de Informática (Sábado - Tarde)
+                            </label>
+                        </div>
+                        <div class="column is-6 py-2">
+                            <label class="checkbox">
+                                <input type="checkbox" class="mr-1">
+                                Oficina de Violão (Sábado - Manhã)
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bloco-dependente mb-5 mr-1">
+                <div class="columns is-mobile">
+                    <div class="container-foto">
+                        <img id="foto-perfil" src="" alt="">
+                        <input type="file" v-on:change="previewFile" />
+                    </div>
+                    <div class="container-dados">
+                        <div class="columns mb-0">
+                            <div class="column is-8">
+                                <label for="nome" >Nome:</label>
+                                <input id="nome" class="input is-success mt-1">
+                            </div>
+                            <div class="column is-4">
+                                <label for="dt_nascimento">Data de Nascimento:</label>
+                                <input id="dt_nascimento" class="input is-success mt-1" type="date" v-on:blur="calcularIdade" />
+                            </div>
+                        </div>
+                        <div class="columns mb-0">
+                            <div class="column is-6">
+                                <label for="escola" >Escola:</label>
+                                <input id="escola" class="input is-success mt-1">
+                            </div>
+                            <div class="column is-4">
+                                <label for="serie">Série:</label>
+                                <input id="serie" class="input is-success mt-1">
+                            </div>
+                            <div class="column is-2">
+                                <label for="idade">Idade:</label>
+                                <input id="idade" type="number" class="input is-success mt-1" disabled>
+                            </div>
+                        </div>
+                        <div class="columns mb-0">
+                            <div class="column">
+                                <label for="alergia" >Alergia:</label>
+                                <input id="alergia" class="input is-success mt-1">
+                            </div>
+                            <div class="column">
+                                <label for="laudo">Laudo:</label>
+                                <input id="laudo" class="input is-success mt-1">
+                            </div>
+                        </div>
+                        <div class="columns mb-0">
+                            <div class="column is-4">
+                                <label for="cpf" >CPF:</label>
+                                <input id="cpf" class="input is-success mt-1">
+                            </div>
+                            <div class="column is-8">
+                                <label for="observacao" >Observação:</label>
+                                <input id="observacao" class="input is-success mt-1">
                             </div>
                         </div>
                     </div>
@@ -149,31 +244,53 @@
                 </div>
             </div>
         </div>
-        <div class="container-responsavel column is-4"></div>
-        
-
-        
-        
-        
-        
-        
-        
-        
-
-        
-        
+        <div class="container-responsavel p-3">
+            <div class="is-flex is-justify-content-center mt-4 mb-5">
+                <label class="negrito">RESPONSÁVEL</label>
+            </div>
+            <div class="columns is-multiline is-mobile">
+                <div class="column is-12 p-0 pb-4">
+                    <label for="nome_responsavel">Nome:</label>
+                    <input id="nome_responsavel" class="input is-success mt-1">
+                </div>
+                <div class="column is-12 p-0 pb-4">
+                    <label for="cpf_responsavel">CPF:</label>
+                    <input id="cpf_responsavel" class="input is-success mt-1">
+                </div>
+                <div class="column is-12 p-0 pb-4">
+                    <label for="endereco_responsavel">Endereço:</label>
+                    <input id="endereco_responsavel" class="input is-success mt-1">
+                </div>
+                <div class="column is-12 p-0 pb-4">
+                    <label for="fone_responsavel">Telefone(s):</label>
+                    <input id="fone_responsavel" class="input is-success mt-1">
+                </div>
+            </div>
+        </div>        
         <!-- <div @click="cadastrarAluno()">click aqui</div> -->
     </div>
 </template>
 
 <style scoped>
-    .input.is-success {
-        border-color: var(--verde-claro);
-        background-color: #f2f2f2;
-        font-size: small;
+    .container-dependentes {
+        overflow-y: scroll;
+        max-height: 89vh;
     }
 
-    .bloco-dependente {
+    .container-dependentes::-webkit-scrollbar {
+        width: 7px; /* largura da barra de rolagem */
+    }
+
+    .container-dependentes::-webkit-scrollbar-track {
+        background-color: var(--branco); /* cor de fundo da barra de rolagem */
+    }
+
+    .container-dependentes::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        background-color: var(--verde-claro); /* cor do botão da barra de rolagem */
+    }
+
+    .bloco-dependente, .container-responsavel {
         background: var(--branco);
         color: var(--preto);
         border-radius: 5px;

@@ -75,8 +75,8 @@
     }
 
     .input.is-success {
-        border-color: var(--verde-escuro);
-        background-color: white;
+        border-color: var(--verde-claro);
+        background-color: #f7f7f7;
         font-size: small;
     }
 
