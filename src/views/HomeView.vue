@@ -74,10 +74,20 @@
         text-align: center;
     }
 
-    .input.is-success {
+    .input.is-success, .select {
         border-color: var(--verde-claro);
         background-color: #f7f7f7;
         font-size: small;
+    }
+
+    .select {
+        background-color: var(--branco);
+    }
+
+    select {
+        border-color: var(--verde-claro) !important;
+        background-color: #f7f7f7 !important;
+        width: -webkit-fill-available;
     }
 
     .containerHome {

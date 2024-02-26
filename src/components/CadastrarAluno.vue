@@ -5,7 +5,10 @@
         data() {
             return {
                 alunos: [{}],
-                url: 'http://192.168.0.27:5000/cadastrar_aluno'
+                escolas: [],
+                urlMatricula: 'http://192.168.0.27:5000/registrar_aluno',
+                urlOficinas: 'http://192.168.0.27:5000/listar_oficinas',
+                urlEscolas: 'http://192.168.0.27:5000/listar_escolas',
             };
         },
         methods: {
@@ -15,10 +18,13 @@
 
                 elementos.forEach(function(elemento) {
                     let campos = {}
-                    let inputs = elemento.querySelectorAll('input');
+                    let inputs = elemento.querySelectorAll('input, select');
 
                     inputs.forEach(function(input) {
-                        if (input.id.includes('oficina')){
+                        if (input.id.includes('input-foto')) {
+                            let fotoPreview = "foto-preview-" + input.id[input.id.length - 1];
+                            campos[input.id] = document.getElementById(fotoPreview).src;
+                        } else if (input.id.includes('oficina')){
                             if (input.checked)
                                 campos[input.id] = 1;
                             else
@@ -27,11 +33,17 @@
                             if (input.type === 'number' && input.value)
                                 campos[input.id] = parseInt(input.value, 10);
                             else
-                                campos[input.id] = input.value;
+                                if (input.id.includes("escola"))
+                                    campos[input.id] = parseInt(input.value)
+                                else
+                                    campos[input.id] = input.value;
                         }
                     });
 
                     lista_alunos[elemento.id] = campos;
+
+
+                    console.log(lista_alunos)
                 });
 
                 let campos = {}
@@ -44,24 +56,14 @@
 
                 lista_alunos['responsavel'] = campos;
 
-
-
-                console.log(lista_alunos)
-
-
-
                 try {
-                    // const response = await axios.post(this.url, {
-                    //     nome_voluntario: document.getElementById("nome").value
-                    // });
-                    // this.listaAlunos = response.data;
-
+                    const response = await axios.post(this.urlMatricula, lista_alunos);
                     // this.$emit('item-menu-clicado', 'Alunos');
                 } catch (error) {
-                    console.error('Erro ao carregar voluntários:', error);
+                    console.error('Erro ao cadastrar os alunos: ', error);
                 }
             },
-            previewFile(index) {
+            previewFile(event, index) {
                 let file = document.getElementById("input-foto-" + index).files[0];
                 let preview = document.getElementById("foto-preview-" + index);
                 let reader = new FileReader();
@@ -69,7 +71,7 @@
                 reader.addEventListener(
                     "load",
                     () => {
-                        preview.src = reader.result;
+                        preview.src = reader.result;  
                     },
                     false
                 );
@@ -93,11 +95,15 @@
             },
             addBlocoAluno(){
                 this.alunos.push({})
+            },
+            async carregarEscolas(){
+                const response = await axios.get(this.urlEscolas);
+                this.escolas = response.data;
             }
         },
-        // mounted() {
-        //     this.carregarAlunos()
-        // },
+        mounted() {
+            this.carregarEscolas()
+        },
     }
 </script>
 
@@ -108,7 +114,7 @@
                 <div class="columns is-mobile">
                     <div class="container-foto">
                         <img :id="'foto-preview-' + index" class="foto-preview" src="" alt="">
-                        <input :id="'input-foto-' + index" type="file" v-on:change="previewFile(index)" />
+                        <input :id="'input-foto-' + index" type="file" accept="image/*" @change="previewFile($event, index)" />
                     </div>
                     <div class="container-dados">
                         <div class="columns mb-0">
@@ -122,13 +128,29 @@
                             </div>
                         </div>
                         <div class="columns mb-0">
-                            <div class="column is-6">
+                            <div class="column is-5 is-flex is-flex-direction-column">
                                 <label :for="'escola-' + index" >Escola:</label>
-                                <input :id="'escola-' + index" class="input is-success mt-1">
+                                <div class="select is-success is-rounded mt-1">
+                                    <select :id="'escola-' + index">
+                                        <option value="0">Não Identificado</option>
+                                        <option v-for="(escola, indice) in escolas" :key="indice" :value="escola.codigo">
+                                            {{ escola.nome }}
+                                        </option>
+                                    </select>
+                                </div>
                             </div>
-                            <div class="column is-4">
+                            <div class="column is-3">
                                 <label :for="'serie-' + index">Série:</label>
                                 <input :id="'serie-' + index" class="input is-success mt-1">
+                            </div>
+                            <div class="column is-2">
+                                <label :for="'sexo-' + index">Sexo:</label>
+                                <div class="select is-success is-rounded mt-1">
+                                    <select :id="'sexo-' + index">
+                                        <option value="M">M</option>
+                                        <option value="F">F</option>
+                                    </select>
+                                </div>
                             </div>
                             <div class="column is-2">
                                 <label :for="'idade-' + index">Idade:</label>
@@ -182,44 +204,50 @@
             <div class="is-flex is-justify-content-center mt-4 mb-5">
                 <label class="negrito">RESPONSÁVEL</label>
             </div>
-            <div class="columns is-multiline is-mobile">
-                <div class="column is-12 p-0 pb-4">
-                    <label for="nome_responsavel">Nome:</label>
-                    <input id="nome_responsavel" class="input is-success mt-1">
+            <div class="is-flex is-flex-direction-column is-justify-content-space-between" style="height: 76vh;">
+                <div class="columns is-multiline is-mobile">
+                    <div class="column is-12 p-0 pb-4">
+                        <label for="nome_responsavel">Nome:</label>
+                        <input id="nome_responsavel" class="input is-success mt-1">
+                    </div>
+                    <div class="column is-12 p-0 pb-4">
+                        <label for="cpf_responsavel">CPF:</label>
+                        <input id="cpf_responsavel" class="input is-success mt-1">
+                    </div>
+                    <div class="column is-12 p-0 pb-4">
+                        <label for="endereco_responsavel">Endereço:</label>
+                        <input id="endereco_responsavel" class="input is-success mt-1">
+                    </div>
+                    <div class="column is-12 p-0 pb-4">
+                        <label for="fone_responsavel">Telefone(s):</label>
+                        <input id="fone_responsavel" class="input is-success mt-1">
+                    </div>
+                    <div class="column is-12 p-0">
+                        <label for="ocupacao_responsavel">Ocupação:</label>
+                        <input id="ocupacao_responsavel" class="input is-success mt-1">
+                    </div>
                 </div>
-                <div class="column is-12 p-0 pb-4">
-                    <label for="cpf_responsavel">CPF:</label>
-                    <input id="cpf_responsavel" class="input is-success mt-1">
-                </div>
-                <div class="column is-12 p-0 pb-4">
-                    <label for="endereco_responsavel">Endereço:</label>
-                    <input id="endereco_responsavel" class="input is-success mt-1">
-                </div>
-                <div class="column is-12 p-0 pb-4">
-                    <label for="fone_responsavel">Telefone(s):</label>
-                    <input id="fone_responsavel" class="input is-success mt-1">
+                <div class="container-opcoes">
+                    <div class="is-flex is-justify-content-center mb-5">
+                        <label class="negrito">OPÇÕES</label>
+                    </div>
+                    <div class="is-flex is-justify-content-space-evenly">
+                        <div id="btnAddAluno" class="btnOpcao" @click="addBlocoAluno">
+                            <i class='bx bxs-user-plus is-size-4 mr-1'></i>
+                            <span>Aluno</span>
+                        </div>
+                        <div id="btnConfirmar" class="btnOpcao" @click="realizarMatricula">
+                            <i class='bx bx-check is-size-4 mr-1'></i>
+                            <span>Matricular</span>
+                        </div>
+                        <div id="btnPDF" class="btnOpcao">
+                            <i class='bx bxs-file-pdf is-size-5 mr-1'></i>
+                            <span>PDF</span>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="container-opcoes mt-6">
-                <div class="is-flex is-justify-content-center pt-6 mb-5">
-                    <label class="negrito">OPÇÕES</label>
-                </div>
-                <div class="is-flex is-justify-content-space-evenly">
-                    <div id="btnAddAluno" class="btnOpcao" @click="addBlocoAluno">
-                        <i class='bx bxs-user-plus is-size-4 mr-1'></i>
-                        <span>Aluno</span>
-                    </div>
-                    <div id="btnConfirmar" class="btnOpcao" @click="realizarMatricula">
-                        <i class='bx bx-check is-size-4 mr-1'></i>
-                        <span>Matricular</span>
-                    </div>
-                    <div id="btnPDF" class="btnOpcao">
-                        <i class='bx bxs-file-pdf is-size-5 mr-1'></i>
-                        <span>PDF</span>
-                    </div>
-                </div>
-            </div>
-        </div>        
+        </div>
         <!-- <div @click="cadastrarAluno()">click aqui</div> -->
     </div>
 </template>
@@ -228,6 +256,7 @@
     .container-dependentes {
         overflow-y: scroll;
         max-height: 89vh;
+        min-height: 89vh;
     }
 
     .container-dependentes::-webkit-scrollbar {
