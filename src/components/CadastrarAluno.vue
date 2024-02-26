@@ -4,41 +4,81 @@
     export default {
         data() {
             return {
+                alunos: [{}],
                 url: 'http://192.168.0.27:5000/cadastrar_aluno'
             };
         },
         methods: {
-            async cadastrarAluno(){
+            async realizarMatricula(){
+                let lista_alunos = {};
+                let elementos = document.querySelectorAll('.bloco-dependente');
+
+                elementos.forEach(function(elemento) {
+                    let campos = {}
+                    let inputs = elemento.querySelectorAll('input');
+
+                    inputs.forEach(function(input) {
+                        if (input.id.includes('oficina')){
+                            if (input.checked)
+                                campos[input.id] = 1;
+                            else
+                                campos[input.id] = 0;
+                        } else {
+                            if (input.type === 'number' && input.value)
+                                campos[input.id] = parseInt(input.value, 10);
+                            else
+                                campos[input.id] = input.value;
+                        }
+                    });
+
+                    lista_alunos[elemento.id] = campos;
+                });
+
+                let campos = {}
+                let responsavel = document.querySelectorAll('.container-responsavel')[0];
+                let inputs = responsavel.querySelectorAll('input');
+
+                inputs.forEach(function(input) {
+                    campos[input.id] = input.value;
+                });
+
+                lista_alunos['responsavel'] = campos;
+
+
+
+                console.log(lista_alunos)
+
+
+
                 try {
                     // const response = await axios.post(this.url, {
                     //     nome_voluntario: document.getElementById("nome").value
                     // });
                     // this.listaAlunos = response.data;
 
-                    this.$emit('item-menu-clicado', 'Alunos');
+                    // this.$emit('item-menu-clicado', 'Alunos');
                 } catch (error) {
                     console.error('Erro ao carregar voluntários:', error);
                 }
             },
-            previewFile() {
-                let file = document.querySelector("input[type=file]").files[0];
-                let preview = document.getElementById("foto-perfil");
+            previewFile(index) {
+                let file = document.getElementById("input-foto-" + index).files[0];
+                let preview = document.getElementById("foto-preview-" + index);
                 let reader = new FileReader();
 
                 reader.addEventListener(
                     "load",
                     () => {
-                        // convert image file to base64 string
                         preview.src = reader.result;
                     },
-                    false,
+                    false
                 );
 
                 if (file) {
                     reader.readAsDataURL(file);
                 }
             },
-            calcularIdade() {
+            calcularIdade(index) {
                 let idade = 0;
                 let hoje = new Date();
                 let dataNascimento = new Date(event.target.value);
@@ -49,7 +89,10 @@
                 else
                     idade = diffAnos;
 
-                document.getElementById("idade").value = idade;
+                document.getElementById("idade-" + index).value = idade;
+            },
+            addBlocoAluno(){
+                this.alunos.push({})
             }
         },
         // mounted() {
@@ -61,55 +104,55 @@
 <template>
     <div class="columns is-mobile m-3">
         <div class="container-dependentes column is-8 p-0 mr-2">
-            <div class="bloco-dependente mb-5 mr-1">
+            <div :id="'dependente-' + index" class="bloco-dependente mb-5 mr-2" v-for="(aluno, index) in alunos" :key="index">
                 <div class="columns is-mobile">
                     <div class="container-foto">
-                        <img id="foto-perfil" src="" alt="">
-                        <input type="file" v-on:change="previewFile" />
+                        <img :id="'foto-preview-' + index" class="foto-preview" src="" alt="">
+                        <input :id="'input-foto-' + index" type="file" v-on:change="previewFile(index)" />
                     </div>
                     <div class="container-dados">
                         <div class="columns mb-0">
                             <div class="column is-8">
-                                <label for="nome" >Nome:</label>
-                                <input id="nome" class="input is-success mt-1">
+                                <label :for="'nome-' + index">Nome:</label>
+                                <input :id="'nome-' + index" class="input is-success mt-1">
                             </div>
                             <div class="column is-4">
-                                <label for="dt_nascimento">Data de Nascimento:</label>
-                                <input id="dt_nascimento" class="input is-success mt-1" type="date" v-on:blur="calcularIdade" />
+                                <label :for="'dt-nascimento-' + index">Data de Nascimento:</label>
+                                <input :id="'dt-nascimento-' + index" class="input is-success mt-1" type="date" v-on:blur="calcularIdade(index)" />
                             </div>
                         </div>
                         <div class="columns mb-0">
                             <div class="column is-6">
-                                <label for="escola" >Escola:</label>
-                                <input id="escola" class="input is-success mt-1">
+                                <label :for="'escola-' + index" >Escola:</label>
+                                <input :id="'escola-' + index" class="input is-success mt-1">
                             </div>
                             <div class="column is-4">
-                                <label for="serie">Série:</label>
-                                <input id="serie" class="input is-success mt-1">
+                                <label :for="'serie-' + index">Série:</label>
+                                <input :id="'serie-' + index" class="input is-success mt-1">
                             </div>
                             <div class="column is-2">
-                                <label for="idade">Idade:</label>
-                                <input id="idade" type="number" class="input is-success mt-1" disabled>
+                                <label :for="'idade-' + index">Idade:</label>
+                                <input :id="'idade-' + index" type="number" class="input is-success mt-1" disabled>
                             </div>
                         </div>
                         <div class="columns mb-0">
                             <div class="column">
-                                <label for="alergia" >Alergia:</label>
-                                <input id="alergia" class="input is-success mt-1">
+                                <label :for="'alergia-' + index" >Alergia:</label>
+                                <input :id="'alergia-' + index" class="input is-success mt-1">
                             </div>
                             <div class="column">
-                                <label for="laudo">Laudo:</label>
-                                <input id="laudo" class="input is-success mt-1">
+                                <label :for="'laudo-' + index">Laudo:</label>
+                                <input :id="'laudo-' + index" class="input is-success mt-1">
                             </div>
                         </div>
                         <div class="columns mb-0">
                             <div class="column is-4">
-                                <label for="cpf" >CPF:</label>
-                                <input id="cpf" class="input is-success mt-1">
+                                <label :for="'cpf-' + index">CPF:</label>
+                                <input :id="'cpf-' + index" class="input is-success mt-1">
                             </div>
                             <div class="column is-8">
-                                <label for="observacao" >Observação:</label>
-                                <input id="observacao" class="input is-success mt-1">
+                                <label :for="'observacao-' + index">Observação:</label>
+                                <input :id="'observacao-' + index" class="input is-success mt-1">
                             </div>
                         </div>
                     </div>
@@ -120,124 +163,15 @@
                     </div>
                     <div class="columns is-multiline is-mobile my-4">
                         <div class="column is-6 py-2">
-                            <label class="checkbox">
-                                <input type="checkbox" class="mr-1">
+                            <label :for="'oficina-0-' + index" class="checkbox">
+                                <input :id="'oficina-0-' + index" type="checkbox" class="mr-1">
                                 Acompanhamento Escolar (Manhã)
                             </label>
                         </div>
                         <div class="column is-6 py-2">
-                            <label class="checkbox">
-                                <input type="checkbox" class="mr-1">
+                            <label :for="'oficina-1-' + index" class="checkbox">
+                                <input :id="'oficina-1-' + index" type="checkbox" class="mr-1">
                                 Acompanhamento Escolar (Tarde)
-                            </label>
-                        </div>
-                        <div class="column is-6 py-2">
-                            <label class="checkbox">
-                                <input type="checkbox" class="mr-1">
-                                Oficina de Teclado (Quarta - Manhã)
-                            </label>
-                        </div>
-                        <div class="column is-6 py-2">
-                            <label class="checkbox">
-                                <input type="checkbox" class="mr-1">
-                                Oficina de Informática (Sábado - Tarde)
-                            </label>
-                        </div>
-                        <div class="column is-6 py-2">
-                            <label class="checkbox">
-                                <input type="checkbox" class="mr-1">
-                                Oficina de Violão (Sábado - Manhã)
-                            </label>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="bloco-dependente mb-5 mr-1">
-                <div class="columns is-mobile">
-                    <div class="container-foto">
-                        <img id="foto-perfil" src="" alt="">
-                        <input type="file" v-on:change="previewFile" />
-                    </div>
-                    <div class="container-dados">
-                        <div class="columns mb-0">
-                            <div class="column is-8">
-                                <label for="nome" >Nome:</label>
-                                <input id="nome" class="input is-success mt-1">
-                            </div>
-                            <div class="column is-4">
-                                <label for="dt_nascimento">Data de Nascimento:</label>
-                                <input id="dt_nascimento" class="input is-success mt-1" type="date" v-on:blur="calcularIdade" />
-                            </div>
-                        </div>
-                        <div class="columns mb-0">
-                            <div class="column is-6">
-                                <label for="escola" >Escola:</label>
-                                <input id="escola" class="input is-success mt-1">
-                            </div>
-                            <div class="column is-4">
-                                <label for="serie">Série:</label>
-                                <input id="serie" class="input is-success mt-1">
-                            </div>
-                            <div class="column is-2">
-                                <label for="idade">Idade:</label>
-                                <input id="idade" type="number" class="input is-success mt-1" disabled>
-                            </div>
-                        </div>
-                        <div class="columns mb-0">
-                            <div class="column">
-                                <label for="alergia" >Alergia:</label>
-                                <input id="alergia" class="input is-success mt-1">
-                            </div>
-                            <div class="column">
-                                <label for="laudo">Laudo:</label>
-                                <input id="laudo" class="input is-success mt-1">
-                            </div>
-                        </div>
-                        <div class="columns mb-0">
-                            <div class="column is-4">
-                                <label for="cpf" >CPF:</label>
-                                <input id="cpf" class="input is-success mt-1">
-                            </div>
-                            <div class="column is-8">
-                                <label for="observacao" >Observação:</label>
-                                <input id="observacao" class="input is-success mt-1">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="container-oficinas pt-2">
-                    <div class="is-flex is-justify-content-center">
-                        <label class="negrito">OFICINAS</label>
-                    </div>
-                    <div class="columns is-multiline is-mobile my-4">
-                        <div class="column is-6 py-2">
-                            <label class="checkbox">
-                                <input type="checkbox" class="mr-1">
-                                Acompanhamento Escolar (Manhã)
-                            </label>
-                        </div>
-                        <div class="column is-6 py-2">
-                            <label class="checkbox">
-                                <input type="checkbox" class="mr-1">
-                                Acompanhamento Escolar (Tarde)
-                            </label>
-                        </div>
-                        <div class="column is-6 py-2">
-                            <label class="checkbox">
-                                <input type="checkbox" class="mr-1">
-                                Oficina de Teclado (Quarta - Manhã)
-                            </label>
-                        </div>
-                        <div class="column is-6 py-2">
-                            <label class="checkbox">
-                                <input type="checkbox" class="mr-1">
-                                Oficina de Informática (Sábado - Tarde)
-                            </label>
-                        </div>
-                        <div class="column is-6 py-2">
-                            <label class="checkbox">
-                                <input type="checkbox" class="mr-1">
-                                Oficina de Violão (Sábado - Manhã)
                             </label>
                         </div>
                     </div>
@@ -264,6 +198,25 @@
                 <div class="column is-12 p-0 pb-4">
                     <label for="fone_responsavel">Telefone(s):</label>
                     <input id="fone_responsavel" class="input is-success mt-1">
+                </div>
+            </div>
+            <div class="container-opcoes mt-6">
+                <div class="is-flex is-justify-content-center pt-6 mb-5">
+                    <label class="negrito">OPÇÕES</label>
+                </div>
+                <div class="is-flex is-justify-content-space-evenly">
+                    <div id="btnAddAluno" class="btnOpcao" @click="addBlocoAluno">
+                        <i class='bx bxs-user-plus is-size-4 mr-1'></i>
+                        <span>Aluno</span>
+                    </div>
+                    <div id="btnConfirmar" class="btnOpcao" @click="realizarMatricula">
+                        <i class='bx bx-check is-size-4 mr-1'></i>
+                        <span>Matricular</span>
+                    </div>
+                    <div id="btnPDF" class="btnOpcao">
+                        <i class='bx bxs-file-pdf is-size-5 mr-1'></i>
+                        <span>PDF</span>
+                    </div>
                 </div>
             </div>
         </div>        
@@ -308,7 +261,8 @@
         align-items: center;
         padding: 5px;
 
-        #foto-perfil {
+        .foto-preview {
+            border-radius: 4px;
             width: 143px;
             height: 192px;
         }
@@ -323,6 +277,45 @@
 
         .column {
             padding: 10px 7px;
+        }
+    }
+
+    .container-opcoes {
+        .btnOpcao {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 4px 8px;
+            color: var(--branco);
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        #btnAddAluno {
+            background: var(--verde-claro);
+
+            &:hover{
+                color: var(--verde-claro);
+                background: var(--branco);
+            }
+        }
+
+        #btnConfirmar {
+            background: var(--principal);
+
+            &:hover{
+                color: var(--principal);
+                background: var(--branco);
+            }
+        }
+
+        #btnPDF {
+            background: var(--verde-escuro);
+
+            &:hover{
+                color: var(--verde-escuro);
+                background: var(--branco);
+            }
         }
     }
 
