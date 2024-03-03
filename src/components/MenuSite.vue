@@ -20,12 +20,12 @@
 
                     if (window.innerWidth <= 768) {
                         window.scrollTo({
-                            top: window.scrollY + elementPosition - 210,
+                            top: window.scrollY + elementPosition - 230,
                             behavior: 'smooth'
                         });
                     } else {
                         window.scrollTo({
-                            top: window.scrollY + elementPosition - 50,
+                            top: window.scrollY + elementPosition - 40,
                             behavior: 'smooth'
                         });
                     }
@@ -36,7 +36,7 @@
 </script>
 
 <template>
-    <nav class="columns is-gapless px-3 py-1 mb-0">
+    <nav class="columns is-gapless px-3 mb-0">
         <h1 id="logo" class="column is-narrow">
             <a href="/" class="is-flex is-align-items-center">
                 <img class="image is-rounded is-48x48" src="@/assets/images/logo-caca.png" alt="Logo do CACA">
@@ -71,7 +71,7 @@
             <img @click="toggleMenu" class="is-clickable" src="@/assets/images/icon-menu.png" alt="Menu">
         </div>
     </nav>
-    <div v-if="menuVisivel" id="menu-mobile" class="is-flex is-align-items-center is-justify-content-center mt-2">
+    <div v-if="menuVisivel" id="menu-mobile" class="is-flex is-align-items-center is-justify-content-center pt-2">
         <ul>
             <li class="is-clickable" :class="{ 'menu-selecionado': secaoAtiva === 'banner-frase' }">
                 <a @click="scrollToSection('banner-frase')">HOME</a>
@@ -145,7 +145,7 @@
         }
 
         #menu-mobile {
-            top: 56px;
+            top: 48px;
             z-index: 2;
             position: sticky;
             background-color: #fff;

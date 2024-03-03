@@ -41,9 +41,6 @@
                     });
 
                     lista_alunos[elemento.id] = campos;
-
-
-                    console.log(lista_alunos)
                 });
 
                 let campos = {}
