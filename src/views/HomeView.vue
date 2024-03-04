@@ -2,6 +2,7 @@
     import Sidebar from '../components/Sidebar.vue';
     import Alunos from '../components/Alunos.vue';
     import CadastrarAluno from '../components/CadastrarAluno.vue';
+    import VisualizarAluno from '../components/VisualizarAluno.vue';
     import Voluntarios from '../components/Voluntarios.vue';
 
     export default {
@@ -9,6 +10,7 @@
             Sidebar,
             Alunos,
             CadastrarAluno,
+            VisualizarAluno,
             Voluntarios,
         },
         data() {
@@ -20,6 +22,10 @@
             handleItemMenuClicado(paginaAtual) {
                 this.paginaAtual = paginaAtual;
             },
+            abrirInfoAluno(dados) {
+                console.log(dados)
+                this.paginaAtual = "Aluno - " + dados.aluno.nome;
+            }
         }
     };
 </script>
@@ -35,9 +41,10 @@
                 </div>
                 <i class='clicavel bx bx-exit'></i>
             </nav>
-            <Alunos v-if="paginaAtual === 'Alunos'" @item-menu-clicado="handleItemMenuClicado"/>
-            <CadastrarAluno v-if="paginaAtual === 'Cadastro de Aluno'" @item-menu-clicado="handleItemMenuClicado"/>
+            <Alunos v-if="paginaAtual === 'Alunos'" @item-menu-clicado="handleItemMenuClicado" @visualizar-aluno="abrirInfoAluno"/>
+            <CadastrarAluno v-if="paginaAtual === 'Cadastrar Aluno'" @item-menu-clicado="handleItemMenuClicado"/>
             <Voluntarios v-if="paginaAtual === 'Voluntários'" />
+            <VisualizarAluno v-if="paginaAtual.includes('Aluno -')" @item-menu-clicado="handleItemMenuClicado"/>
         </div>
     </div>
 </template>

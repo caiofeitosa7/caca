@@ -6,17 +6,18 @@
             return {
                 listaAlunos: {},
                 quantAlunos: 0,
-                url: 'http://192.168.0.27:5000/listar_alunos'
+                urlListarAlunos: 'http://192.168.0.27:5000/listar_alunos',
+                urlVisualizarAluno: 'http://192.168.0.27:5000/visualizar_aluno/'
             };
         },
         methods: {
             async carregarAlunos() {
                 try {
-                    const response = await axios.get(this.url);
+                    const response = await axios.get(this.urlListarAlunos);
                     this.listaAlunos = response.data.alunos;
                     this.quantAlunos = response.data.quantidade;
                 } catch (error) {
-                    console.error('Erro ao carregar voluntários:', error);
+                    console.error('Erro ao carregar alunos:', error);
                 }
             },
             async filtrarAlunos(){
@@ -29,11 +30,11 @@
                 });
 
                 try {
-                    const response = await axios.post(this.url, dados);
+                    const response = await axios.post(this.urlListarAlunos, dados);
                     this.listaAlunos = response.data.alunos;
                     this.quantAlunos = response.data.quantidade;
                 } catch (error) {
-                    console.error('Erro ao carregar voluntários:', error);
+                    console.error('Erro ao filtrar alunos:', error);
                 }
             },
             emitirClick(componentName) {
@@ -45,7 +46,16 @@
                 document.getElementById("idade1").value = "";
                 document.getElementById("idade2").value = "";
                 this.carregarAlunos();
-            }
+            },
+            async visualizarAluno(codigo){
+                const response = await axios.get(this.urlVisualizarAluno + '/' + codigo);
+                let dados = response.data;
+
+                if (dados.status === 'success')
+                    this.$emit('visualizar-aluno', dados);
+                else
+                    alert("Aluno não encontrado!")
+            },
         },
         mounted() {
             this.carregarAlunos()
@@ -87,7 +97,7 @@
                     Limpar Filtro
                 </button>
             </div>
-            <button id="btnAdicionarAluno" class="is-flex is-align-items-center" @click="emitirClick('Cadastro de Aluno')">
+            <button id="btnAdicionarAluno" class="is-flex is-align-items-center" @click="emitirClick('Cadastrar Aluno')">
                 <i class='bx bxs-user-plus'></i>
             </button>
         </div>
@@ -99,7 +109,8 @@
                 <span class="column is-1 text-align-center">Idade</span>
                 <span class="column is-1 text-align-center">Sexo</span>
             </div>
-            <div class="linha clicavel columns is-mobile" v-for="(aluno, index) in this.listaAlunos" :key="index">
+            <div class="linha clicavel columns is-mobile" v-for="(aluno, index) in this.listaAlunos" :key="index"
+                @click="visualizarAluno(aluno.codigo)">
                 <span class="column is-1 text-align-center">{{ aluno.codigo }}</span>
                 <span class="column is-4">{{ aluno.nome }}</span>
                 <span class="column is-2">{{ aluno.cpf }}</span>
