@@ -15,6 +15,7 @@
         },
         data() {
             return {
+                dados_aluno: null,
                 paginaAtual: 'Alunos'
             };
         },
@@ -23,7 +24,7 @@
                 this.paginaAtual = paginaAtual;
             },
             abrirInfoAluno(dados) {
-                console.log(dados)
+                this.dados_aluno = dados;
                 this.paginaAtual = "Aluno - " + dados.aluno.nome;
             }
         }
@@ -44,7 +45,10 @@
             <Alunos v-if="paginaAtual === 'Alunos'" @item-menu-clicado="handleItemMenuClicado" @visualizar-aluno="abrirInfoAluno"/>
             <CadastrarAluno v-if="paginaAtual === 'Cadastrar Aluno'" @item-menu-clicado="handleItemMenuClicado"/>
             <Voluntarios v-if="paginaAtual === 'Voluntários'" />
-            <VisualizarAluno v-if="paginaAtual.includes('Aluno -')" @item-menu-clicado="handleItemMenuClicado"/>
+            <VisualizarAluno v-if="paginaAtual.includes('Aluno -')" 
+                @visualizar-aluno="abrirInfoAluno"
+                :dados=this.dados_aluno
+            />
         </div>
     </div>
 </template>
