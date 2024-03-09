@@ -19,6 +19,81 @@
             };
         },
         methods: {
+            async atualizarAluno(){
+                let dados = {};
+                let elementos = document.querySelectorAll('.bloco-dependente');
+
+                elementos.forEach(function(elemento) {
+                    let campos = {}
+                    let inputs = elemento.querySelectorAll('input, select');
+
+                    inputs.forEach(function(input) {
+                        if (input.id.includes('input-foto')) {
+                            let fotoPreview = "foto-preview-" + input.id[input.id.length - 1];
+                            campos[input.id] = document.getElementById(fotoPreview).src;
+                        } else if (input.id.includes('oficina')){
+                            if (input.checked)
+                                campos[input.id] = 1;
+                            else
+                                campos[input.id] = 0;
+                        } else {
+                            if (input.type === 'number' && input.value || input.id.includes("escola"))
+                                campos[input.id] = parseInt(input.value, 10);
+                            else
+                                campos[input.id] = input.value;
+                        }
+                    });
+
+                    dados[elemento.id] = campos;
+                });
+
+                let campos = {}
+                let responsavel = document.querySelectorAll('.container-responsavel')[0];
+                let inputs = responsavel.querySelectorAll('input');
+
+                inputs.forEach(function(input) {
+                    campos[input.id] = input.value;
+                });
+
+                dados['responsavel'] = campos;
+
+                try {
+                    const response = await axios.post(this.urlMatricula, dados);
+                    // this.$emit('item-menu-clicado', 'Alunos');
+                } catch (error) {
+                    console.error('Erro ao cadastrar os alunos: ', error);
+                }
+            },
+            previewFile(event, index) {
+                let file = document.getElementById("input-foto-" + index).files[0];
+                let preview = document.getElementById("foto-preview-" + index);
+                let reader = new FileReader();
+
+                reader.addEventListener(
+                    "load",
+                    () => {
+                        preview.src = reader.result;  
+                    },
+                    false
+                );
+
+                if (file) {
+                    reader.readAsDataURL(file);
+                }
+            },
+            calcularIdade(index) {
+                let idade = 0;
+                let hoje = new Date();
+                let dataNascimento = new Date(event.target.value);
+                let diffAnos = hoje.getFullYear() - dataNascimento.getFullYear();
+
+                if (new Date(hoje.getFullYear(), dataNascimento.getMonth(), dataNascimento.getDate()) > hoje)
+                    idade = diffAnos - 1;
+                else
+                    idade = diffAnos;
+
+                document.getElementById("idade-" + index).value = idade;
+            },
             async carregarEscolas(){
                 const response = await axios.get(this.urlEscolas);
                 this.escolas = response.data;
@@ -52,7 +127,7 @@
     <div class="columns is-mobile m-3">
         <div class="container-dependentes column is-8 p-0 mr-2">
             <div :id="'dependente-' + index" class="bloco-dependente mb-5 mr-2" v-for="(aluno, index) in alunos" :key="index">
-                <input id="codigo" type="number" :value="dados.aluno.codigo" hidden/>
+                <input id="codigo" type="number" :value="dados.aluno.codigo" disabled hidden/>
                 <div class="columns is-mobile">
                     <div class="container-foto">
                         <img :id="'foto-preview-' + index" class="foto-preview" :src="dados.aluno.foto" alt="Foto 3x4 do aluno">
@@ -127,6 +202,8 @@
                                     :value="dados.aluno.observacao">
                             </div>
                         </div>
+                        <input id="dt_alteracao" type="date" :value="dados.aluno.dt_alteracao" disabled hidden/>
+                        <input id="cod_responsavel" type="number" :value="dados.aluno.cod_responsavel" disabled hidden/>
                     </div>
                 </div>
                 <div class="container-oficinas pt-2">
@@ -160,6 +237,7 @@
             </div>
             <div id="campos-responsavel" class="is-flex is-flex-direction-column is-justify-content-space-between">
                 <div class="columns is-multiline is-mobile">
+                    <input id="codigo_responsavel" type="number" :value="dados.aluno.codigo_responsavel" hidden/>
                     <div class="column is-12 p-0 pb-4">
                         <label for="nome_responsavel">Nome:</label>
                         <input id="nome_responsavel" class="input is-success mt-1"
@@ -190,16 +268,16 @@
                     <div class="is-flex is-justify-content-center mb-5">
                         <label class="negrito">OPÇÕES</label>
                     </div>
-                    <div class="is-flex is-justify-content-space-evenly">
-                        <div id="btnAddAluno" class="btnOpcao" @click="addBlocoAluno">
+                    <div class="is-flex is-justify-content-center">
+                        <!-- <div id="btnAddAluno" class="btnOpcao" @click="addBlocoAluno">
                             <i class='bx bxs-user-plus is-size-4 mr-1'></i>
                             <span>Aluno</span>
-                        </div>
-                        <div id="btnConfirmar" class="btnOpcao" @click="realizarMatricula">
+                        </div> -->
+                        <div id="btnConfirmar" class="btnOpcao mx-2" @click="atualizarAluno">
                             <i class='bx bx-check is-size-4 mr-1'></i>
-                            <span>Matricular</span>
+                            <span class="mr-1">Atualizar</span>
                         </div>
-                        <div id="btnPDF" class="btnOpcao">
+                        <div id="btnPDF" class="btnOpcao mx-2">
                             <i class='bx bxs-file-pdf is-size-5 mr-1'></i>
                             <span>PDF</span>
                         </div>

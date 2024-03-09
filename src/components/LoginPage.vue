@@ -63,7 +63,7 @@
 			<form class="login-form">
 				<div class="wrap-input">
 					<label class="label-input" for="usuario">Usuário</label>
-					<input id="usuario" class="input" placeholder="Digite seu usuário">
+					<input id="usuario" class="input" placeholder="Digite seu usuário" @keydown.enter="fazerLogin">
 				</div>
 				<div class="wrap-input" data-validate="Password is required">
 					<label class="label-input" for="senha">Senha</label>

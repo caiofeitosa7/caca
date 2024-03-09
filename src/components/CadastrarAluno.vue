@@ -13,7 +13,7 @@
         },
         methods: {
             async realizarMatricula(){
-                let lista_alunos = {};
+                let dados = {};
                 let elementos = document.querySelectorAll('.bloco-dependente');
 
                 elementos.forEach(function(elemento) {
@@ -30,17 +30,14 @@
                             else
                                 campos[input.id] = 0;
                         } else {
-                            if (input.type === 'number' && input.value)
+                            if (input.type === 'number' && input.value || input.id.includes("escola"))
                                 campos[input.id] = parseInt(input.value, 10);
                             else
-                                if (input.id.includes("escola"))
-                                    campos[input.id] = parseInt(input.value)
-                                else
-                                    campos[input.id] = input.value;
+                                campos[input.id] = input.value;
                         }
                     });
 
-                    lista_alunos[elemento.id] = campos;
+                    dados[elemento.id] = campos;
                 });
 
                 let campos = {}
@@ -51,10 +48,10 @@
                     campos[input.id] = input.value;
                 });
 
-                lista_alunos['responsavel'] = campos;
+                dados['responsavel'] = campos;
 
                 try {
-                    const response = await axios.post(this.urlMatricula, lista_alunos);
+                    const response = await axios.post(this.urlMatricula, dados);
                     // this.$emit('item-menu-clicado', 'Alunos');
                 } catch (error) {
                     console.error('Erro ao cadastrar os alunos: ', error);
@@ -78,6 +75,8 @@
                 }
             },
             calcularIdade(index) {
+                console.log('ola')
+
                 let idade = 0;
                 let hoje = new Date();
                 let dataNascimento = new Date(event.target.value);
@@ -235,7 +234,7 @@
                         </div>
                         <div id="btnConfirmar" class="btnOpcao" @click="realizarMatricula">
                             <i class='bx bx-check is-size-4 mr-1'></i>
-                            <span>Matricular</span>
+                            <span class="mr-1">Matricular</span>
                         </div>
                         <div id="btnPDF" class="btnOpcao">
                             <i class='bx bxs-file-pdf is-size-5 mr-1'></i>
