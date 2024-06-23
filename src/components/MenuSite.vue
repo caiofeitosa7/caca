@@ -36,7 +36,7 @@
 </script>
 
 <template>
-    <nav class="columns is-gapless px-3 mb-0">
+    <nav class="columns is-gapless px-3 py-1 mb-0">
         <h1 id="logo" class="column is-narrow">
             <a href="/" class="is-flex is-align-items-center">
                 <img class="image is-rounded is-48x48" src="@/assets/images/logo-caca.png" alt="Logo do CACA">
@@ -65,7 +65,7 @@
             </ul>
         </div>
         <div class="column is-flex is-align-items-center is-narrow">
-            <a id="btn-login" class="px-4 py-2" href="/login">LOGIN</a>
+            <a id="btn-login" class="px-4 py-2" href="/login" hidden>LOGIN</a>
         </div>
         <div class="column is-flex is-align-items-center">
             <img @click="toggleMenu" class="is-clickable" src="@/assets/images/icon-menu.png" alt="Menu">
@@ -88,9 +88,9 @@
             <li class="is-clickable" :class="{ 'menu-selecionado': secaoAtiva === 'container-contato' }">
                 <a @click="scrollToSection('container-contato')">CONTATO</a>
             </li>
-            <li class="is-clickable">
+            <!-- <li class="is-clickable">
                 <a href="/login">LOGIN</a>
-            </li>
+            </li> -->
         </ul>
     </div>
 </template>
