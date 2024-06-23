@@ -4,7 +4,7 @@
             <div class="is-flex is-flex-direction-column">
                 <h2 id="frase-efeito" class="has-text-centered mb-4">
                     "O futuro da humanidade repousa nos ombros das crianças, 
-                    e é nossa responsabilidade prepará-los para um amanhã melhor."
+                    e é nossa responsabilidade prepará-las para um amanhã melhor."
                 </h2>
                 <p id="autor-frase-efeito" class="has-text-centered">Janet Jackson</p>
             </div>
@@ -141,6 +141,29 @@
                 <div class="card-noticia column is-full is-flex mb-5 p-0">
                     <div class="container-imagem">
                         <p class="titulo-card-noticia-left">
+                            Tarde de Brincadeiras: "Diversão e Alegria Inesquecíveis" 🎠🛹
+                        </p>
+                        <img src="@/assets/images/criancaraiz.png" alt="Menina com uma flor pintada no rosto segurando um dindin de uva">
+                    </div>
+                    <div class="container-conteudo px-5 py-5">
+                        <div class="is-flex is-justify-content-space-between mb-4">
+                            <p class="titulo-card-noticia-right">
+                                Tarde de Brincadeiras: "Diversão e Alegria Inesquecíveis" 🎠🛹
+                            </p>
+                            <p class="data-noticia">14/06/2024</p>
+                        </div>
+                        <p class="is-text-center has-text-centered">
+                            Gratidão imensa por uma tarde inesquecível de brincadeiras e alegria! Carro de rolimã, 
+                            skate e um delicioso lanche fizeram a felicidade das nossas crianças. Um agradecimento 
+                            especial ao Projeto @minhainfanciaraiz e à nossa querida amiga @karla_eulalio, juntamente 
+                            com os demais voluntários, por proporcionarem momentos tão especiais. Vocês transformaram 
+                            sonhos em realidade e encheram nossos corações de felicidade! 💖✨ #TardeDeDiversão
+                        </p>
+                    </div>
+                </div>
+                <div class="card-noticia column is-full is-flex mb-5 p-0">
+                    <div class="container-imagem">
+                        <p class="titulo-card-noticia-left">
                             Celebração de Carnaval: "Diversão e Solidariedade em Harmonia" 🎉
                         </p>
                         <img src="@/assets/images/carnaval.png" alt="Dona Lurdinha dando entrevista para o Programa Piauí de Riquezas">
@@ -220,7 +243,7 @@
                         </p>
                     </div>
                 </div>
-                <div class="card-noticia column is-full is-flex mb-5 p-0">
+                <!-- <div class="card-noticia column is-full is-flex mb-5 p-0">
                     <div class="container-imagem">
                         <p class="titulo-card-noticia-left">
                             Dia das Crianças: Uma Jornada de Diversão e Aprendizado 🎈🎉
@@ -243,7 +266,7 @@
                             nossos corações. 🌟🎁 #Gratidão
                         </p>
                     </div>
-                </div>
+                </div> -->
                 <!-- <div id="btnMaisNoticias" class="is-flex is-justify-content-center is-align-items-center">
                     <a href="#">Mais Notícias</a>
                 </div> -->

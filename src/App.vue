@@ -1,13 +1,10 @@
-<!-- <script setup>
-  import { RouterView } from 'vue-router'
-  import SiglePage from './components/SinglePage.vue'
-</script> -->
+<script setup>
+    import { RouterView } from 'vue-router'
+</script>
 
 <template>
-
-  <RouterView />
+    <RouterView />
 </template>
 
 <style scoped>
-
 </style>

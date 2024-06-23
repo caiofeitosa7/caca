@@ -20,12 +20,12 @@
 
                     if (window.innerWidth <= 768) {
                         window.scrollTo({
-                            top: window.scrollY + elementPosition - 210,
+                            top: window.scrollY + elementPosition - 230,
                             behavior: 'smooth'
                         });
                     } else {
                         window.scrollTo({
-                            top: window.scrollY + elementPosition - 50,
+                            top: window.scrollY + elementPosition - 40,
                             behavior: 'smooth'
                         });
                     }
@@ -71,7 +71,7 @@
             <img @click="toggleMenu" class="is-clickable" src="@/assets/images/icon-menu.png" alt="Menu">
         </div>
     </nav>
-    <div v-if="menuVisivel" id="menu-mobile" class="is-flex is-align-items-center is-justify-content-center mt-2">
+    <div v-if="menuVisivel" id="menu-mobile" class="is-flex is-align-items-center is-justify-content-center pt-2">
         <ul>
             <li class="is-clickable" :class="{ 'menu-selecionado': secaoAtiva === 'banner-frase' }">
                 <a @click="scrollToSection('banner-frase')">HOME</a>
@@ -145,7 +145,7 @@
         }
 
         #menu-mobile {
-            top: 56px;
+            top: 48px;
             z-index: 2;
             position: sticky;
             background-color: #fff;
