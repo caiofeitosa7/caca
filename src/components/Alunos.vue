@@ -74,7 +74,9 @@
                     <input id="nome" class="input is-success">
                 </div>
                 <div class="is-flex is-align-items-center mr-3">
-                    <label for="sexo" class="font-weight-600 mr-2">Sexo:</label>
+                    <label for="sexo" class="font-weight-600 mr-2">
+                        Sexo:
+                    </label>
                     <div class="select is-success is-rounded">
                         <select id="sexo">
                             <option value="M">M</option>

@@ -141,6 +141,54 @@
                 <div class="card-noticia column is-full is-flex mb-5 p-0">
                     <div class="container-imagem">
                         <p class="titulo-card-noticia-left">
+                            Festa das Crianças: "Alegria e Carinho em Cada Sorriso" 🎈❤️
+                        </p>
+                        <img src="@/assets/images/dia_criancas_2024.png" alt="Todas as crianças reunidas em volta da mesa com um bolo.">
+                    </div>
+                    <div class="container-conteudo px-5 py-5">
+                        <div class="is-flex is-justify-content-space-between mb-4">
+                            <p class="titulo-card-noticia-right">
+                                Festa das Crianças: "Alegria e Carinho em Cada Sorriso" 🎈❤️
+                            </p>
+                            <p class="data-noticia">12/10/2024</p>
+                        </div>
+                        <p class="is-text-center has-text-centered">
+                            Hoje foi dia de muita alegria e diversão na nossa Festa das Crianças, promovida com 
+                            todo o carinho pelo grupo de amigas do @rotaryclubthefatima. Cada sorriso, brincadeira 
+                            e momento especial trouxe um brilho único aos olhos das crianças assistidas pelo 
+                            Projeto CACA. Nosso profundo agradecimento a essas mulheres incríveis que se uniram para 
+                            fazer deste dia inesquecível e repleto de amor. Vocês transformaram este dia em uma 
+                            memória preciosa que ficará guardada para sempre nos corações dos nossos pequenos! 💖✨ 
+                            #Gratidão #InfanciaFeliz
+                        </p>
+                    </div>
+                </div>
+                <div class="card-noticia column is-full is-flex mb-5 p-0">
+                    <div class="container-imagem">
+                        <p class="titulo-card-noticia-left">
+                            Arraiá da Alegria: "Uma Noite para Guardar na Memória" 🎉🌽
+                        </p>
+                        <img src="@/assets/images/quadrilha.png" alt="Quadrilha dançando em roda">
+                    </div>
+                    <div class="container-conteudo px-5 py-5">
+                        <div class="is-flex is-justify-content-space-between mb-4">
+                            <p class="titulo-card-noticia-right">
+                                Arraiá da Alegria: "Uma Noite para Guardar na Memória" 🎉🌽
+                            </p>
+                            <p class="data-noticia">15/07/2024</p>
+                        </div>
+                        <p class="is-text-center has-text-centered">
+                            Foi uma noite inesquecível! No dia 13/07, nosso arraiá trouxe muita alegria, música, 
+                            dança e comidas típicas deliciosas. Uma celebração cheia de cores e sorrisos que uniu 
+                            toda a nossa comunidade em momentos especiais. Agradecemos a todos que participaram e 
+                            contribuíram para tornar essa festa um verdadeiro sucesso! Que venha o próximo ano com 
+                            ainda mais alegria e tradição! 🎶🎊 #ArraiaDaAlegria
+                        </p>
+                    </div>
+                </div>
+                <div class="card-noticia column is-full is-flex mb-5 p-0">
+                    <div class="container-imagem">
+                        <p class="titulo-card-noticia-left">
                             Tarde de Brincadeiras: "Diversão e Alegria Inesquecíveis" 🎠🛹
                         </p>
                         <img src="@/assets/images/criancaraiz.png" alt="Menina com uma flor pintada no rosto segurando um dindin de uva">
@@ -186,7 +234,7 @@
                         </p>
                     </div>
                 </div>
-                <div class="card-noticia column is-full is-flex mb-5 p-0">
+                <!-- <div class="card-noticia column is-full is-flex mb-5 p-0">
                     <div class="container-imagem">
                         <p class="titulo-card-noticia-left">
                             Programa Piauí de Riquezas: Valorizando a Generosidade 📺🌟
@@ -213,8 +261,8 @@
                             </a>
                         </p>
                     </div>
-                </div>
-                <div class="card-noticia column is-full is-flex mb-5 p-0">
+                </div> -->
+                <!-- <div class="card-noticia column is-full is-flex mb-5 p-0">
                     <div class="container-imagem">
                         <p class="titulo-card-noticia-left">
                             Prato Cheio: Nutrindo Corações com Solidariedade 🍽️❤️
@@ -242,7 +290,7 @@
                             </a>
                         </p>
                     </div>
-                </div>
+                </div> -->
                 <!-- <div class="card-noticia column is-full is-flex mb-5 p-0">
                     <div class="container-imagem">
                         <p class="titulo-card-noticia-left">
