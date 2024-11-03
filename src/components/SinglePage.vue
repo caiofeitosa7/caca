@@ -1,3 +1,40 @@
+<script>
+    export default {
+        data() {
+            return {
+            cards: [
+                {
+                titulo: "Festa das Crianças: 'Alegria e Carinho em Cada Sorriso' 🎈❤️",
+                descricao: "Todas as crianças reunidas em volta da mesa com um bolo.",
+                conteudo:
+                "Hoje foi dia de muita alegria e diversão na nossa Festa das Crianças, promovida com todo o carinho pelo grupo de amigas do @rotaryclubthefatima. Cada sorriso, brincadeira e momento especial trouxe um brilho único aos olhos das crianças assistidas pelo Projeto CACA. Nosso profundo agradecimento a essas mulheres incríveis que se uniram para fazer deste dia inesquecível e repleto de amor. Vocês transformaram este dia em uma memória preciosa que ficará guardada para sempre nos corações dos nossos pequenos! 💖✨ #Gratidão #InfanciaFeliz",
+                imagens: [
+                    new URL('@/assets/images/dia_criancas_2024-1.png', import.meta.url).href,
+                    new URL('@/assets/images/dia_criancas_2024-2.png', import.meta.url).href,
+                    new URL('@/assets/images/dia_criancas_2024-3.png', import.meta.url).href,
+                ],
+                data: "12/10/2024",
+                imagemAtual: 0
+                },
+                // Outros cards podem ser adicionados aqui
+            ]
+            };
+        },
+        methods: {
+            proxima(index) {
+            if (this.cards[index].imagemAtual < this.cards[index].imagens.length - 1) {
+                this.cards[index].imagemAtual++;
+            }
+            },
+            anterior(index) {
+            if (this.cards[index].imagemAtual > 0) {
+                this.cards[index].imagemAtual--;
+            }
+            }
+        }
+    };
+</script>
+
 <template>
     <main>
         <section id="banner-frase" class="is-flex is-justify-content-center is-align-items-center">
@@ -138,7 +175,31 @@
                 <h2 class="is-size-3 has-text-centered">ÚLTIMAS NOTÍCIAS</h2>
             </div>
             <div class="container-conteudo-noticias columns is-multiline">
-                <div class="card-noticia column is-full is-flex mb-5 p-0">
+                <div class="card-noticia column is-full is-flex mb-5 p-0" v-for="(card, index) in cards" :key="index">
+                    <div class="container-imagem">
+                        <p class="titulo-card-noticia-left">{{ card.titulo }}</p>
+                        <div class="container-btn-img">
+                            <img :src="card.imagens[card.imagemAtual]" :alt="card.descricao" />
+                            <div class="botoes-navegacao">
+                                <button @click="anterior(index)" :disabled="card.imagemAtual === 0">
+                                    <i class='bx bxs-chevron-left'></i>
+                                </button>
+                                <button @click="proxima(index)" :disabled="card.imagemAtual === card.imagens.length - 1">
+                                    <i class='bx bxs-chevron-right'></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container-conteudo px-5 py-5">
+                        <div class="is-flex is-justify-content-space-between mb-4">
+                            <p class="titulo-card-noticia-right">{{ card.titulo }}</p>
+                            <p class="data-noticia">{{ card.data }}</p>
+                        </div>
+                        <p class="is-text-center has-text-centered">{{ card.conteudo }}</p>
+                    </div>
+                </div>
+
+                <!-- <div class="card-noticia column is-full is-flex mb-5 p-0">
                     <div class="container-imagem">
                         <p class="titulo-card-noticia-left">
                             Festa das Crianças: "Alegria e Carinho em Cada Sorriso" 🎈❤️
@@ -208,7 +269,7 @@
                             sonhos em realidade e encheram nossos corações de felicidade! 💖✨ #TardeDeDiversão
                         </p>
                     </div>
-                </div>
+                </div> -->
                 <div class="card-noticia column is-full is-flex mb-5 p-0">
                     <div class="container-imagem">
                         <p class="titulo-card-noticia-left">
@@ -412,6 +473,33 @@
 </template>
 
 <style scoped>
+    .container-imagem {
+        position: relative;
+    }
+
+    .container-btn-img {
+        position: relative;
+    }
+
+    .botoes-navegacao {
+        position: absolute;
+        transform: translate(-50%, -50%);
+        justify-content: center;
+        display: flex;
+        top: 90%;
+        left: 50%;
+        gap: 20px;
+        z-index: 1;
+    }
+
+    .botoes-navegacao button {
+        background-color: rgba(255, 255, 255, 0.8);
+        border-radius: 50%;
+        padding: 7px 10px;
+        cursor: pointer;
+        border: none;
+    }
+
     #banner-frase {
         background-image: url('@/assets/images/capa-caca3.jpg');
         background-position: center center;
@@ -549,6 +637,10 @@
         display: none;
     }
 
+    .container-btn-img {
+        max-width: 337.6px;
+    }
+
     .card-noticia img {
         height: 100%;
         width: 337.6px;
@@ -609,7 +701,6 @@
         color: #999;
     }
 
-
     /* -------------------------------------------------------------------------- */
 
     
@@ -625,8 +716,8 @@
             padding: 1.5rem 0 1.5rem 1.5rem;
         }
 
-        .card-noticia .container-imagem img {
-            height: 70%;
+        .container-btn-img img{
+            /* height: 80%; */
             border-radius: 7px 7px 7px 7px;
         }
 
@@ -671,10 +762,14 @@
             height: auto;
             flex-direction: column;
         }
+        
+        .container-btn-img {
+            max-width: 100%;
+        }
 
         .card-noticia img {
             border-radius: 15px 15px 0 0;
-            width: auto;
+            width: 100%;
         }
 
         .card-noticia .is-flex {
