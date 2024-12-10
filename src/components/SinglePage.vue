@@ -42,7 +42,7 @@
             </div>
             <p>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                A trajetória teve início no ano de 1995, quando a Igreja Católica Santa Terezinha do Menino Jesus 
+                Nossa trajetória teve início no ano de 1995, quando a Igreja Católica Santa Terezinha do Menino Jesus 
                 mobilizou diversos grupos de fiéis com o propósito de realizar ações missionárias de caráter 
                 emergencial na sociedade. Esse movimento despertou em Dona Lurdinha, especialmente após tomar 
                 conhecimento da trágica morte de dois jovens da comunidade em decorrência de crimes, a determinação 
@@ -396,12 +396,14 @@
                         </li>
                         <li>
                             Veja no mapa acessando o 
-                            <a id="link-localizacao" href="https://www.google.com/maps/place/CACA-+Centro+De+Apoio+a+Crian%C3%A7a+e+ao+Adolescente/@-5.0518442,-42.7563402,15z/data=!4m6!3m5!1s0x78e3ba52d0f5f15:0x6430dd44f2397e5!8m2!3d-5.0518442!4d-42.7563402!16s%2Fg%2F11cmc2s7w_?entry=ttu" target="_blank">
+                            <a id="link-localizacao" href="https://www.google.com/maps/place/R.+Santa+Quit%C3%A9ria,+4441+-+Sat%C3%A9lite,+Teresina+-+PI,+64059-040/@-5.0516445,-42.7589741,17z/data=!4m6!3m5!1s0x78e3ba52c773e9b:0x8eb008973a96ca6a!8m2!3d-5.0516968!4d-42.7562703!16s%2Fg%2F11tfzcdf8w?entry=ttu&g_ep=EgoyMDI0MTIwNC4wIKXMDSoASAFQAw%3D%3D" target="_blank">
                                 link
                             </a>.
                         </li>
                     </ul>
-                    <img class="image" src="@/assets/images/mapa-caca.png" alt="Icone Email">
+                    <a href="https://www.google.com/maps/place/R.+Santa+Quit%C3%A9ria,+4441+-+Sat%C3%A9lite,+Teresina+-+PI,+64059-040/@-5.0516445,-42.7589741,17z/data=!4m6!3m5!1s0x78e3ba52c773e9b:0x8eb008973a96ca6a!8m2!3d-5.0516968!4d-42.7562703!16s%2Fg%2F11tfzcdf8w?entry=ttu&g_ep=EgoyMDI0MTIwNC4wIKXMDSoASAFQAw%3D%3D" target="_blank">
+                        <img class="image" src="@/assets/images/mapa-caca.png" alt="Icone Email">
+                    </a>
                 </div>
             </div>
         </section>
