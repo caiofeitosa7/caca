@@ -79,7 +79,7 @@
             </div>
             <p>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                A trajetória teve início no ano de 1995, quando a Igreja Católica Santa Terezinha do Menino Jesus 
+                Nossa trajetória teve início no ano de 1995, quando a Igreja Católica Santa Terezinha do Menino Jesus 
                 mobilizou diversos grupos de fiéis com o propósito de realizar ações missionárias de caráter 
                 emergencial na sociedade. Esse movimento despertou em Dona Lurdinha, especialmente após tomar 
                 conhecimento da trágica morte de dois jovens da comunidade em decorrência de crimes, a determinação 

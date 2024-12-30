@@ -6,8 +6,8 @@
             return {
                 listaAlunos: {},
                 quantAlunos: 0,
-                urlListarAlunos: 'http://192.168.0.27:5000/listar_alunos',
-                urlVisualizarAluno: 'http://192.168.0.27:5000/visualizar_aluno/'
+                urlListarAlunos: 'http://localhost:5000/listar_alunos',
+                urlVisualizarAluno: 'http://localhost:5000/visualizar_aluno/'
             };
         },
         methods: {

@@ -7,20 +7,20 @@
         },
         data() {
             return {
+                urlLogin: 'http://localhost:5000/logar_usuario',
+                conteudoModal: "",
                 showModal: false,
                 tituloModal: "",
-                conteudoModal: ""
             };
         },
         methods: {
             fazerLogin() {
-                let url = 'http://192.168.0.27:5000/logar_usuario'
                 let dados = {
                     usuario: document.getElementById('usuario').value,
                     senha: document.getElementById('senha').value
                 };
 
-                fetch(url, {
+                fetch(this.urlLogin, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'

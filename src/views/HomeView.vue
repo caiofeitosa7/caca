@@ -26,7 +26,18 @@
             abrirInfoAluno(dados) {
                 this.dados_aluno = dados;
                 this.paginaAtual = "Aluno - " + dados.aluno.nome;
-            }
+            },
+            async logout() {
+                try {
+                    const response = await fetch('http://localhost:5000/logout', {method: 'POST'});
+                    const result = await response.json();
+
+                    if (result.status === 'success')
+                        window.location.href = '/login';
+                } catch (error) {
+                    console.error('Erro ao realizar logout:', error);
+                }
+            },
         }
     };
 </script>
@@ -40,7 +51,7 @@
                     <i class='bx bxs-dashboard mr-2'></i>
                     <label class="negrito">{{ paginaAtual }}</label>
                 </div>
-                <i class='clicavel bx bx-exit'></i>
+                <i class='clicavel bx bx-exit' @click="logout"></i>
             </nav>
             <Alunos v-if="paginaAtual === 'Alunos'" @item-menu-clicado="handleItemMenuClicado" @visualizar-aluno="abrirInfoAluno"/>
             <CadastrarAluno v-if="paginaAtual === 'Cadastrar Aluno'" @item-menu-clicado="handleItemMenuClicado"/>

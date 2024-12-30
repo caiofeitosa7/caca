@@ -5,7 +5,7 @@
         data() {
             return {
                 listaVoluntarios: {},
-                url: 'http://192.168.0.27:5000/listar_voluntarios'
+                url: 'http://localhost:5000/listar_voluntarios'
             };
         },
         methods: {

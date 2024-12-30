@@ -12,10 +12,11 @@
                 alunos: [{}],
                 escolas: [],
                 showModal: false,
-                urlVisualizarAluno: 'http://192.168.0.27:5000/visualizar_aluno',
-                urlMatricula: 'http://192.168.0.27:5000/registrar_aluno',
-                urlOficinas: 'http://192.168.0.27:5000/listar_oficinas',
-                urlEscolas: 'http://192.168.0.27:5000/listar_escolas',
+                urlVisualizarAluno: 'http://localhost:5000/visualizar_aluno',
+                urlMatricula: 'http://localhost:5000/registrar_aluno',
+                urlOficinas: 'http://localhost:5000/listar_oficinas',
+                urlEscolas: 'http://localhost:5000/listar_escolas',
+                urlPDF: 'http://localhost:5000/baixar-pdf'
             };
         },
         methods: {
@@ -79,6 +80,27 @@
 
                 if (file) {
                     reader.readAsDataURL(file);
+                }
+            },
+            async generatePDF() {
+                try {
+                    const response = await fetch(this.urlPDF, {method: 'GET'});
+
+                    if (!response.ok)
+                        throw new Error('Erro ao gerar o PDF');
+
+                    const blob = await response.blob();
+                    const url = window.URL.createObjectURL(blob);
+
+                    // Criando um link para download
+                    const link = document.createElement('a');
+                    link.href = url;
+                    link.setAttribute('download', 'arquivo.pdf');
+                    document.body.appendChild(link);
+                    link.click();
+                    link.remove();
+                } catch (error) {
+                    console.error('Erro:', error);
                 }
             },
             calcularIdade(index) {
@@ -277,7 +299,7 @@
                             <i class='bx bx-check is-size-4 mr-1'></i>
                             <span class="mr-1">Atualizar</span>
                         </div>
-                        <div id="btnPDF" class="btnOpcao mx-2">
+                        <div id="btnPDF" class="btnOpcao mx-2" @click="generatePDF">
                             <i class='bx bxs-file-pdf is-size-5 mr-1'></i>
                             <span>PDF</span>
                         </div>
