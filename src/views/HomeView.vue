@@ -15,6 +15,7 @@
         },
         data() {
             return {
+                urlLogout: 'http://localhost:5000/logout',
                 dados_aluno: null,
                 paginaAtual: 'Alunos'
             };
@@ -29,7 +30,7 @@
             },
             async logout() {
                 try {
-                    const response = await fetch('http://localhost:5000/logout', {method: 'POST'});
+                    const response = await fetch(this.urlLogout, {method: 'POST'});
                     const result = await response.json();
 
                     if (result.status === 'success')

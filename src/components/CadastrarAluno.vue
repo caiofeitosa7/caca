@@ -7,9 +7,11 @@
                 alunos: [{}],
                 escolas: [],
                 urlMatricula: 'http://localhost:5000/registrar_aluno',
-                urlOficinas: 'http://localhost:5000/listar_oficinas',
+                urlOficinas: 'http://localhost:5000/listar_turmas',
                 urlEscolas: 'http://localhost:5000/listar_escolas',
-                urlPDF: 'http://localhost:5000/baixar-pdf'
+                urlPDF: 'http://localhost:5000/baixar-pdf',
+                oficinas_selecionadas: [],
+                lista_oficinas: [],
             };
         },
         methods: {
@@ -115,10 +117,20 @@
             async carregarEscolas(){
                 const response = await axios.get(this.urlEscolas);
                 this.escolas = response.data;
-            }
+            },
+            async carregarOficinas() {
+                try {
+                    const response = await fetch(this.urlOficinas);
+                    const data = await response.json();
+                    this.lista_oficinas = data;
+                } catch (error) {
+                    console.error('Erro ao buscar oficinas:', error);
+                }
+            },
         },
         mounted() {
-            this.carregarEscolas()
+            this.carregarEscolas(),
+            this.carregarOficinas();
         },
     }
 </script>
@@ -195,21 +207,27 @@
                         </div>
                     </div>
                 </div>
+                <!-- ---------------- OFICINAS ---------------- -->
+
                 <div class="container-oficinas pt-2">
                     <div class="is-flex is-justify-content-center">
                         <label class="negrito">OFICINAS</label>
                     </div>
                     <div class="columns is-multiline is-mobile my-4">
-                        <div class="column is-6 py-2">
-                            <label :for="'oficina-0-' + index" class="checkbox">
-                                <input :id="'oficina-0-' + index" type="checkbox" class="mr-1">
-                                Acompanhamento Escolar (Manhã)
-                            </label>
-                        </div>
-                        <div class="column is-6 py-2">
-                            <label :for="'oficina-1-' + index" class="checkbox">
-                                <input :id="'oficina-1-' + index" type="checkbox" class="mr-1">
-                                Acompanhamento Escolar (Tarde)
+                        <div 
+                            v-for="(oficina, index) in this.lista_oficinas" 
+                            :key="index" 
+                            class="column is-6 py-2"
+                        >
+                            <label :for="'oficina-' + index" class="checkbox">
+                                <input 
+                                    :id="'oficina-' + index" 
+                                    type="checkbox" 
+                                    class="mr-1"
+                                    v-model="selecionadas" 
+                                    :value="oficina.cod_turma"
+                                >
+                                    {{ oficina.nome }} | {{ oficina.periodo }}
                             </label>
                         </div>
                     </div>

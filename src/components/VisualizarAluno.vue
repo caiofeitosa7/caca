@@ -12,11 +12,16 @@
                 alunos: [{}],
                 escolas: [],
                 showModal: false,
+                urlTurmasAluno: 'http://localhost:5000/listar_turmas_aluno/',
                 urlVisualizarAluno: 'http://localhost:5000/visualizar_aluno',
                 urlMatricula: 'http://localhost:5000/registrar_aluno',
-                urlOficinas: 'http://localhost:5000/listar_oficinas',
+                urlOficinas: 'http://localhost:5000/listar_turmas',
                 urlEscolas: 'http://localhost:5000/listar_escolas',
-                urlPDF: 'http://localhost:5000/baixar-pdf'
+                urlPDF: 'http://localhost:5000/baixar-pdf',
+                oficinasSelecionadas: [],
+                listaOficinas: [],
+                oficinasAluno: [],
+                alunoAtual: this.dados.aluno.codigo,
             };
         },
         methods: {
@@ -120,12 +125,32 @@
                 const response = await axios.get(this.urlEscolas);
                 this.escolas = response.data;
             },
+            async carregarOficinas() {
+                try {
+                    const response = await fetch(this.urlOficinas);
+                    const data = await response.json();
+                    this.listaOficinas = data;
+                } catch (error) {
+                    console.error('Erro ao buscar oficinas:', error);
+                }
+            },
+            async fetchTurmasAluno(codigo) {
+                try {
+                    const response = await fetch(`${this.urlTurmasAluno}${codigo}`);
+                    const data = await response.json();
+                    this.turmasAluno = data.map(turma => turma.cod_turma);
+                    this.oficinasSelecionadas = [...this.turmasAluno];
+                } catch (error) {
+                    console.error('Erro ao buscar turmas do aluno:', error);
+                }
+            },
             async visualizarAluno(codigo){
                 const response = await axios.get(this.urlVisualizarAluno + '/' + codigo);
                 let dadosApi = response.data;
 
                 if (dadosApi.status === 'success'){
                     this.fecharModal();
+                    this.fetchTurmasAluno(codigo)
                     this.$emit('visualizar-aluno', dadosApi);
                 }
                 else
@@ -139,7 +164,9 @@
             }
         },
         mounted() {
-            this.carregarEscolas()
+            this.carregarEscolas(),
+            this.carregarOficinas(),
+            this.fetchTurmasAluno(this.alunoAtual)
         },
     }
 </script>
@@ -228,21 +255,28 @@
                         <input id="cod_responsavel" type="number" :value="dados.aluno.cod_responsavel" disabled hidden/>
                     </div>
                 </div>
+
+                <!-- ---------------- OFICINAS ---------------- -->
+
                 <div class="container-oficinas pt-2">
                     <div class="is-flex is-justify-content-center">
                         <label class="negrito">OFICINAS</label>
                     </div>
                     <div class="columns is-multiline is-mobile my-4">
-                        <div class="column is-6 py-2">
-                            <label :for="'oficina-0-' + index" class="checkbox">
-                                <input :id="'oficina-0-' + index" type="checkbox" class="mr-1">
-                                Acompanhamento Escolar (Manhã)
-                            </label>
-                        </div>
-                        <div class="column is-6 py-2">
-                            <label :for="'oficina-1-' + index" class="checkbox">
-                                <input :id="'oficina-1-' + index" type="checkbox" class="mr-1">
-                                Acompanhamento Escolar (Tarde)
+                        <div 
+                            v-for="(oficina, index) in this.listaOficinas" 
+                            :key="index" 
+                            class="column is-6 py-2"
+                        >
+                            <label :for="'oficina-' + index" class="checkbox">
+                                <input 
+                                    :id="'oficina-' + index" 
+                                    type="checkbox" 
+                                    class="mr-1"
+                                    v-model="oficinasSelecionadas" 
+                                    :value="oficina.cod_turma"
+                                >
+                                    {{ oficina.nome }} | {{ oficina.periodo }}
                             </label>
                         </div>
                     </div>
