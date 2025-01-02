@@ -1,11 +1,18 @@
 <script>
+    import ModalMensagem from '../components/ModalMensagem.vue'
     import axios from 'axios';
 
     export default {
+        components: {
+            ModalMensagem
+        },
         data() {
             return {
                 alunos: [{}],
                 escolas: [],
+                showModalMsg: false,
+                conteudoModal: "",
+                tituloModal: "",
                 urlMatricula: 'http://localhost:5000/registrar_aluno',
                 urlOficinas: 'http://localhost:5000/listar_turmas',
                 urlEscolas: 'http://localhost:5000/listar_escolas',
@@ -27,7 +34,7 @@
                         if (input.id.includes('input-foto')) {
                             let fotoPreview = "foto-preview-" + input.id[input.id.length - 1];
                             campos[input.id] = document.getElementById(fotoPreview).src;
-                        } else if (input.id.includes('oficina')){
+                        } else if (input.id.includes('turma')){
                             if (input.checked)
                                 campos[input.id] = 1;
                             else
@@ -55,7 +62,16 @@
 
                 try {
                     const response = await axios.post(this.urlMatricula, dados);
-                    // this.$emit('item-menu-clicado', 'Alunos');
+
+                    if (response.status == 200) {
+                        this.showModalMsg = true;
+                        this.tituloModal = "Sucesso!";
+                        this.conteudoModal = response.data.mensagem;
+                    } else {
+                        this.showModalMsg = true;
+                        this.tituloModal = "Erro!";
+                        this.conteudoModal = "Ocorreu um problema na atualização!";
+                    }
                 } catch (error) {
                     console.error('Erro ao cadastrar os alunos: ', error);
                 }
@@ -127,6 +143,9 @@
                     console.error('Erro ao buscar oficinas:', error);
                 }
             },
+            fecharModal() {
+                this.showModalMsg = false;
+            },
         },
         mounted() {
             this.carregarEscolas(),
@@ -136,6 +155,8 @@
 </script>
 
 <template>
+    <ModalMensagem :showModal="showModalMsg" :titleModal="tituloModal" :contentModal="conteudoModal" @close="fecharModal" />
+
     <div class="columns is-mobile m-3">
         <div class="container-dependentes column is-8 p-0 mr-2">
             <div :id="'dependente-' + index" class="bloco-dependente mb-5 mr-2" v-for="(aluno, index) in alunos" :key="index">
@@ -219,9 +240,9 @@
                             :key="index" 
                             class="column is-6 py-2"
                         >
-                            <label :for="'oficina-' + index" class="checkbox">
+                            <label :for="'turma-' + oficina.cod_turma" class="checkbox">
                                 <input 
-                                    :id="'oficina-' + index" 
+                                    :id="'turma-' + oficina.cod_turma"
                                     type="checkbox" 
                                     class="mr-1"
                                     v-model="selecionadas" 
