@@ -64,11 +64,13 @@
                 <span class="column is-2">Função</span>
                 <span class="column is-4">Disponibilidade</span>
             </div>
-            <div class="linha clicavel columns is-mobile" v-for="(voluntario, index) in this.listaVoluntarios" :key="index">
-                <span class="column is-1 text-align-center">{{ voluntario.codigo }}</span>
-                <span class="column is-4">{{ voluntario.nome }}</span>
-                <span class="column is-2">{{ voluntario.funcao }}</span>
-                <span class="column is-4">{{ voluntario.disponivel }}</span>
+            <div class="corpo pb-2">
+                <div class="linha clicavel columns is-mobile" v-for="(voluntario, index) in this.listaVoluntarios" :key="index">
+                    <span class="column is-1 text-align-center">{{ voluntario.codigo }}</span>
+                    <span class="column is-4">{{ voluntario.nome }}</span>
+                    <span class="column is-2">{{ voluntario.funcao }}</span>
+                    <span class="column is-4">{{ voluntario.disponivel }}</span>
+                </div>
             </div>
         </div>
         <p class="mt-4" v-else>Não há voluntários para exibir!</p>
@@ -124,6 +126,24 @@
             color: var(--branco);
             font-weight: 600;
             padding: 10px 5px;
+        }
+
+        .corpo {
+            overflow-y: auto;
+            max-height: 75vh;
+        }
+
+        .corpo::-webkit-scrollbar {
+            width: 7px; /* largura da barra de rolagem */
+        }
+
+        .corpo::-webkit-scrollbar-track {
+            background-color: var(--branco); /* cor de fundo da barra de rolagem */
+        }
+
+        .corpo::-webkit-scrollbar-thumb {
+            border-radius: 10px;
+            background-color: var(--verde-claro); /* cor do botão da barra de rolagem */
         }
 
         .linha {

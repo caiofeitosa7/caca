@@ -2,22 +2,22 @@
     export default {
         data() {
             return {
-            cards: [
-                {
-                titulo: "Festa das Crianças: 'Alegria e Carinho em Cada Sorriso' 🎈❤️",
-                descricao: "Todas as crianças reunidas em volta da mesa com um bolo.",
-                conteudo:
-                "Hoje foi dia de muita alegria e diversão na nossa Festa das Crianças, promovida com todo o carinho pelo grupo de amigas do @rotaryclubthefatima. Cada sorriso, brincadeira e momento especial trouxe um brilho único aos olhos das crianças assistidas pelo Projeto CACA. Nosso profundo agradecimento a essas mulheres incríveis que se uniram para fazer deste dia inesquecível e repleto de amor. Vocês transformaram este dia em uma memória preciosa que ficará guardada para sempre nos corações dos nossos pequenos! 💖✨ #Gratidão #InfanciaFeliz",
-                imagens: [
-                    new URL('@/assets/images/dia_criancas_2024-1.png', import.meta.url).href,
-                    new URL('@/assets/images/dia_criancas_2024-2.png', import.meta.url).href,
-                    new URL('@/assets/images/dia_criancas_2024-3.png', import.meta.url).href,
-                ],
-                data: "12/10/2024",
-                imagemAtual: 0
-                },
-                // Outros cards podem ser adicionados aqui
-            ]
+                cards: [
+                    {
+                        titulo: "Festa das Crianças: 'Alegria e Carinho em Cada Sorriso' 🎈❤️",
+                        descricao: "Todas as crianças reunidas em volta da mesa com um bolo.",
+                        conteudo:
+                        "Hoje foi dia de muita alegria e diversão na nossa Festa das Crianças, promovida com todo o carinho pelo grupo de amigas do @rotaryclubthefatima. Cada sorriso, brincadeira e momento especial trouxe um brilho único aos olhos das crianças assistidas pelo Projeto CACA. Nosso profundo agradecimento a essas mulheres incríveis que se uniram para fazer deste dia inesquecível e repleto de amor. Vocês transformaram este dia em uma memória preciosa que ficará guardada para sempre nos corações dos nossos pequenos! 💖✨ #Gratidão #InfanciaFeliz",
+                        imagens: [
+                            new URL('@/assets/images/dia_criancas_2024-1.png', import.meta.url).href,
+                            new URL('@/assets/images/dia_criancas_2024-2.png', import.meta.url).href,
+                            new URL('@/assets/images/dia_criancas_2024-3.png', import.meta.url).href,
+                        ],
+                        data: "12/10/2024",
+                        imagemAtual: 0
+                    },
+                    // Outros cards podem ser adicionados aqui
+                ]
             };
         },
         methods: {
@@ -175,7 +175,7 @@
                 <h2 class="is-size-3 has-text-centered">ÚLTIMAS NOTÍCIAS</h2>
             </div>
             <div class="container-conteudo-noticias columns is-multiline">
-                <div class="card-noticia column is-full is-flex mb-5 p-0" v-for="(card, index) in cards" :key="index">
+                <!-- <div class="card-noticia column is-full is-flex mb-5 p-0" v-for="(card, index) in cards" :key="index">
                     <div class="container-imagem">
                         <p class="titulo-card-noticia-left">{{ card.titulo }}</p>
                         <div class="container-btn-img">
@@ -197,14 +197,20 @@
                         </div>
                         <p class="is-text-center has-text-centered">{{ card.conteudo }}</p>
                     </div>
-                </div>
+                </div> -->
 
-                <!-- <div class="card-noticia column is-full is-flex mb-5 p-0">
+
+
+
+
+
+
+                <div class="card-noticia column is-full is-flex mb-5 p-0">
                     <div class="container-imagem">
                         <p class="titulo-card-noticia-left">
                             Festa das Crianças: "Alegria e Carinho em Cada Sorriso" 🎈❤️
                         </p>
-                        <img src="@/assets/images/dia_criancas_2024.png" alt="Todas as crianças reunidas em volta da mesa com um bolo.">
+                        <img src="@/assets/images/dia_criancas_2024-2.png" alt="Todas as crianças reunidas em volta da mesa com um bolo.">
                     </div>
                     <div class="container-conteudo px-5 py-5">
                         <div class="is-flex is-justify-content-space-between mb-4">
@@ -269,7 +275,7 @@
                             sonhos em realidade e encheram nossos corações de felicidade! 💖✨ #TardeDeDiversão
                         </p>
                     </div>
-                </div> -->
+                </div>
                 <div class="card-noticia column is-full is-flex mb-5 p-0">
                     <div class="container-imagem">
                         <p class="titulo-card-noticia-left">
@@ -295,90 +301,6 @@
                         </p>
                     </div>
                 </div>
-                <!-- <div class="card-noticia column is-full is-flex mb-5 p-0">
-                    <div class="container-imagem">
-                        <p class="titulo-card-noticia-left">
-                            Programa Piauí de Riquezas: Valorizando a Generosidade 📺🌟
-                        </p>
-                        <img src="@/assets/images/piaui-riquezas.png" alt="Dona Lurdinha dando entrevista para o Programa Piauí de Riquezas">
-                    </div>
-                    <div class="container-conteudo px-5 py-5">
-                        <div class="is-flex is-justify-content-space-between mb-4">
-                            <p class="titulo-card-noticia-right">
-                                Programa Piauí de Riquezas: Valorizando a Generosidade 📺🌟
-                            </p>
-                            <p class="data-noticia">09/12/2023</p>
-                        </div>
-                        <p class="is-text-center has-text-centered">
-                            O Programa Piauí de Riquezas, que viaja por todo Piauí, desembarcou em nossa instituição 
-                            explorando os corações acolhedores que formam o tecido da nossa comunidade. Ao compartilhar 
-                            nossa história, o programa apresentou as atividades diárias que moldam o presente e o futuro 
-                            dessas crianças. Além disso, houve o destaque da história do voluntário Jardel, que um dia 
-                            foi beneficiário do projeto, hoje retorna para oferecer seu tempo e talento, completando um 
-                            ciclo inspirador de solidariedade. 📺 #TransformaçãoDeVidas
-                            <br>
-                            <a href="https://globoplay.globo.com/v/12183019/" target="_blank" rel="noopener noreferrer" style="color: #FF788D;">
-                                Link da reportagem
-                            </a>
-                        </p>
-                    </div>
-                </div> -->
-                <!-- <div class="card-noticia column is-full is-flex mb-5 p-0">
-                    <div class="container-imagem">
-                        <p class="titulo-card-noticia-left">
-                            Prato Cheio: Nutrindo Corações com Solidariedade 🍽️❤️
-                        </p>
-                        <img src="@/assets/images/prato-cheio.png" alt="Foto das doadoras conversando com as crianças do projeto">
-                    </div>
-                    <div class="container-conteudo px-5 py-5">
-                        <div class="is-flex is-justify-content-space-between mb-4">
-                            <p class="titulo-card-noticia-right">
-                                Prato Cheio: Nutrindo Corações com Solidariedade 🍽️❤️
-                            </p>
-                            <p class="data-noticia">29/11/2023</p>
-                        </div>
-                        <p class="is-text-center has-text-centered">
-                            A Campanha Prato Cheio, promovida pela TV Clube, abraçou nossa instituição com uma 
-                            generosidade imensurável. Ao longo de vários dias, testemunhamos uma onda de solidariedade 
-                            varrendo todo o estado do Piauí e nossa instituição, com imensa gratidão, foi escolhida 
-                            como uma das beneficiárias desses gestos de bondade. Essa corrente de compaixão não apenas encheu 
-                            nossas despensas, mas também nutriu a esperança e a solidariedade no coração de cada um, 
-                            recordando-nos do poder transformador que a comunidade pode ter quando se une por uma 
-                            causa tão nobre. 🤝💖 📺 #ComunidadeUnida
-                            <br>
-                            <a href="https://globoplay.globo.com/v/12153379/" target="_blank" rel="noopener noreferrer" style="color: #FF788D;">
-                                Link da reportagem
-                            </a>
-                        </p>
-                    </div>
-                </div> -->
-                <!-- <div class="card-noticia column is-full is-flex mb-5 p-0">
-                    <div class="container-imagem">
-                        <p class="titulo-card-noticia-left">
-                            Dia das Crianças: Uma Jornada de Diversão e Aprendizado 🎈🎉
-                        </p>
-                        <img src="@/assets/images/dia-criancas.png" alt="Foto de todos reunidos no dia das crianças">
-                    </div>
-                    <div class="container-conteudo px-5 py-5">
-                        <div class="is-flex is-justify-content-space-between mb-4">
-                            <p class="titulo-card-noticia-right">
-                                Dia das Crianças: Uma Jornada de Diversão e Aprendizado 🎈🎉
-                            </p>
-                            <p class="data-noticia">12/10/2023</p>
-                        </div>
-                        <p class="is-text-center has-text-centered">
-                            Hoje, no dia das crianças, os grupos Rotary e Rotaract iluminaram nossa instituição 
-                            com a magia da generosidade e alegria. Suas brincadeiras cativantes, doações 
-                            generosas e presença calorosa trouxeram sorrisos radiantes aos rostinhos dos 
-                            nossos pequenos. Agradecemos profundamente por tornarem esse dia tão especial 
-                            e inesquecível, criando memórias preciosas que certamente ficarão gravadas em 
-                            nossos corações. 🌟🎁 #Gratidão
-                        </p>
-                    </div>
-                </div> -->
-                <!-- <div id="btnMaisNoticias" class="is-flex is-justify-content-center is-align-items-center">
-                    <a href="#">Mais Notícias</a>
-                </div> -->
             </div>
         </section>
         <section id="container-comoAjudar" class="section-conteudo">
@@ -457,12 +379,14 @@
                         </li>
                         <li>
                             Veja no mapa acessando o 
-                            <a id="link-localizacao" href="https://www.google.com/maps/place/CACA-+Centro+De+Apoio+a+Crian%C3%A7a+e+ao+Adolescente/@-5.0518442,-42.7563402,15z/data=!4m6!3m5!1s0x78e3ba52d0f5f15:0x6430dd44f2397e5!8m2!3d-5.0518442!4d-42.7563402!16s%2Fg%2F11cmc2s7w_?entry=ttu" target="_blank">
+                            <a id="link-localizacao" href="https://www.google.com/maps/place/R.+Santa+Quit%C3%A9ria,+4441+-+Sat%C3%A9lite,+Teresina+-+PI,+64059-040/@-5.0516445,-42.7589741,17z/data=!4m6!3m5!1s0x78e3ba52c773e9b:0x8eb008973a96ca6a!8m2!3d-5.0516968!4d-42.7562703!16s%2Fg%2F11tfzcdf8w?entry=ttu&g_ep=EgoyMDI0MTIwNC4wIKXMDSoASAFQAw%3D%3D" target="_blank">
                                 link
                             </a>.
                         </li>
                     </ul>
-                    <img class="image" src="@/assets/images/mapa-caca.png" alt="Icone Email">
+                    <a href="https://www.google.com/maps/place/R.+Santa+Quit%C3%A9ria,+4441+-+Sat%C3%A9lite,+Teresina+-+PI,+64059-040/@-5.0516445,-42.7589741,17z/data=!4m6!3m5!1s0x78e3ba52c773e9b:0x8eb008973a96ca6a!8m2!3d-5.0516968!4d-42.7562703!16s%2Fg%2F11tfzcdf8w?entry=ttu&g_ep=EgoyMDI0MTIwNC4wIKXMDSoASAFQAw%3D%3D" target="_blank">
+                        <img class="image" src="@/assets/images/mapa-caca.png" alt="Icone Email">
+                    </a>
                 </div>
             </div>
         </section>

@@ -16,8 +16,8 @@
                 urlMatricula: 'http://localhost:5000/registrar_aluno',
                 urlOficinas: 'http://localhost:5000/listar_turmas',
                 urlEscolas: 'http://localhost:5000/listar_escolas',
-                urlPDF: 'http://localhost:5000/baixar-pdf',
-                oficinas_selecionadas: [],
+                urlPDF: 'http://localhost:5000/baixar-pdf/',
+                // oficinasSelecionadas: [],
                 lista_oficinas: [],
             };
         },
@@ -67,6 +67,7 @@
                         this.showModalMsg = true;
                         this.tituloModal = "Sucesso!";
                         this.conteudoModal = response.data.mensagem;
+                        this.generatePDF(response.data.cod_responsavel);
                     } else {
                         this.showModalMsg = true;
                         this.tituloModal = "Erro!";
@@ -93,9 +94,9 @@
                     reader.readAsDataURL(file);
                 }
             },
-            async generatePDF() {
+            async generatePDF(cod_responsavel) {
                 try {
-                    const response = await fetch(this.urlPDF, {method: 'GET'});
+                    const response = await fetch(this.urlPDF + cod_responsavel, {method: 'GET'});
 
                     if (!response.ok)
                         throw new Error('Erro ao gerar o PDF');
@@ -106,7 +107,7 @@
                     // Criando um link para download
                     const link = document.createElement('a');
                     link.href = url;
-                    link.setAttribute('download', 'arquivo.pdf');
+                    link.setAttribute('download', 'inscricao.pdf');
                     document.body.appendChild(link);
                     link.click();
                     link.remove();
@@ -236,16 +237,15 @@
                     </div>
                     <div class="columns is-multiline is-mobile my-4">
                         <div 
-                            v-for="(oficina, index) in this.lista_oficinas" 
-                            :key="index" 
-                            class="column is-6 py-2"
+                            v-for="(oficina, i) in this.lista_oficinas" 
+                            :key="i" 
+                            class="column is-6 py-1"
                         >
-                            <label :for="'turma-' + oficina.cod_turma" class="checkbox">
+                            <label :for="'turma-' + index + '-' + oficina.cod_turma" class="checkbox">
                                 <input 
-                                    :id="'turma-' + oficina.cod_turma"
+                                    :id="'turma-' + index + '-' + oficina.cod_turma"
                                     type="checkbox" 
                                     class="mr-1"
-                                    v-model="selecionadas" 
                                     :value="oficina.cod_turma"
                                 >
                                     {{ oficina.nome }} | {{ oficina.periodo }}
@@ -295,10 +295,10 @@
                             <i class='bx bx-check is-size-4 mr-1'></i>
                             <span class="mr-1">Matricular</span>
                         </div>
-                        <div id="btnPDF" class="btnOpcao" @click="generatePDF">
+                        <!-- <div id="btnPDF" class="btnOpcao" @click="generatePDF">
                             <i class='bx bxs-file-pdf is-size-5 mr-1'></i>
                             <span>PDF</span>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
@@ -309,7 +309,7 @@
 
 <style scoped>
     .container-dependentes {
-        overflow-y: scroll;
+        overflow-y: auto;
         max-height: 89vh;
         min-height: 89vh;
     }

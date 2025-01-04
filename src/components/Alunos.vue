@@ -7,7 +7,7 @@
                 listaAlunos: {},
                 quantAlunos: 0,
                 urlListarAlunos: 'http://localhost:5000/listar_alunos',
-                urlVisualizarAluno: 'http://localhost:5000/visualizar_aluno/'
+                urlVisualizarAluno: 'http://localhost:5000/visualizar_aluno'
             };
         },
         methods: {
@@ -42,7 +42,7 @@
 			},
             limparFiltro(){
                 document.getElementById("nome").value = "";
-                document.getElementById("sexo").value = "M";
+                document.getElementById("sexo").value = "I";
                 document.getElementById("idade1").value = "";
                 document.getElementById("idade2").value = "";
                 this.carregarAlunos();
@@ -79,6 +79,7 @@
                     </label>
                     <div class="select is-success is-rounded">
                         <select id="sexo">
+                            <option value="I">I</option>
                             <option value="M">M</option>
                             <option value="F">F</option>
                         </select>
@@ -111,14 +112,17 @@
                 <span class="column is-1 text-align-center">Idade</span>
                 <span class="column is-1 text-align-center">Sexo</span>
             </div>
-            <div class="linha clicavel columns is-mobile" v-for="(aluno, index) in this.listaAlunos" :key="index"
-                @click="visualizarAluno(aluno.codigo)">
-                <span class="column is-1 text-align-center">{{ aluno.codigo }}</span>
-                <span class="column is-4">{{ aluno.nome }}</span>
-                <span class="column is-2">{{ aluno.cpf }}</span>
-                <span class="column is-1 text-align-center">{{ aluno.idade }}</span>
-                <span class="column is-1 text-align-center">{{ aluno.sexo }}</span>
+            <div class="corpo pb-2">
+                <div class="linha clicavel columns is-mobile" v-for="(aluno, index) in this.listaAlunos" :key="index"
+                    @click="visualizarAluno(aluno.codigo)">
+                    <span class="column is-1 text-align-center">{{ aluno.codigo }}</span>
+                    <span class="column is-4">{{ aluno.nome }}</span>
+                    <span class="column is-2">{{ aluno.cpf }}</span>
+                    <span class="column is-1 text-align-center">{{ aluno.idade }}</span>
+                    <span class="column is-1 text-align-center">{{ aluno.sexo }}</span>
+                </div>
             </div>
+            
         </div>
         <p class="mt-4" v-else>Não há alunos para exibir!</p>
     </div>
@@ -186,6 +190,25 @@
             font-weight: 600;
             padding: 10px 5px;
         }
+
+        .corpo {
+            overflow-y: auto;
+            max-height: 75vh;
+        }
+
+        .corpo::-webkit-scrollbar {
+            width: 7px; /* largura da barra de rolagem */
+        }
+
+        .corpo::-webkit-scrollbar-track {
+            background-color: var(--branco); /* cor de fundo da barra de rolagem */
+        }
+
+        .corpo::-webkit-scrollbar-thumb {
+            border-radius: 10px;
+            background-color: var(--verde-claro); /* cor do botão da barra de rolagem */
+        }
+
 
         .linha {
             padding: 10px 5px;

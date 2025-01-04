@@ -16,6 +16,11 @@
 				toggleMenu
 			};
 		},
+		data() {
+            return {
+                urlDownloadAlunos: 'http://localhost:5000/download_alunos'
+            };
+        },
 		methods: {
 			emitirClick(componentName) {
 				this.$emit('item-menu-clicado', componentName);
@@ -28,6 +33,30 @@
 
 				event.currentTarget.classList.add('router-link-exact-active');
 			},
+			async downloadAlunos() {
+				try {
+                    const response = await fetch(this.urlDownloadAlunos, {method: 'GET'});
+
+                    if (!response.ok)
+						throw new Error('Erro ao gerar a planilha');
+
+					const blob = await response.blob();
+					const url = window.URL.createObjectURL(blob);
+
+					// Criando um link para download
+					const link = document.createElement('a');
+					link.href = url;
+					link.setAttribute('download', 'beneficiarios.xlsx');
+					document.body.appendChild(link);
+					link.click();
+					link.remove();
+
+					// Revoga a URL para liberar memória
+					window.URL.revokeObjectURL(url);
+                } catch (error) {
+                    console.error('Erro:', error);
+                }
+			}
 		},		
 	};
 </script>
@@ -55,6 +84,10 @@
 			<div @click="emitirClick('Voluntários')" class="button">
 				<i class='material-icons bx bxs-group'></i>
 				<span :class="{ 'text': true, 'hidden': !isExpanded }">Voluntários</span>
+            </div>
+			<div @click="downloadAlunos" class="button">
+				<i class=' material-icons bx bxs-cloud-download is-size-3'></i>
+				<span :class="{ 'text': true, 'hidden': !isExpanded }">Download</span>
             </div>
         </div>
 

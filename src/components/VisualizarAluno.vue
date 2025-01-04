@@ -22,10 +22,9 @@
                 urlMatricula: 'http://localhost:5000/registrar_aluno',
                 urlOficinas: 'http://localhost:5000/listar_turmas',
                 urlEscolas: 'http://localhost:5000/listar_escolas',
-                urlPDF: 'http://localhost:5000/baixar-pdf',
+                urlPDF: 'http://localhost:5000/baixar-pdf/',
                 oficinasSelecionadas: [],
                 listaOficinas: [],
-                oficinasAluno: [],
                 alunoAtual: this.dados.aluno.codigo,
             };
         },
@@ -103,7 +102,8 @@
             },
             async generatePDF() {
                 try {
-                    const response = await fetch(this.urlPDF, {method: 'GET'});
+                    let cod_responsavel = this.dados.aluno.cod_responsavel;
+                    const response = await fetch(this.urlPDF + cod_responsavel, {method: 'GET'});
 
                     if (!response.ok)
                         throw new Error('Erro ao gerar o PDF');
@@ -114,7 +114,7 @@
                     // Criando um link para download
                     const link = document.createElement('a');
                     link.href = url;
-                    link.setAttribute('download', 'arquivo.pdf');
+                    link.setAttribute('download', 'inscricao.pdf');
                     document.body.appendChild(link);
                     link.click();
                     link.remove();
@@ -229,7 +229,7 @@
                                 <label :for="'serie-' + index">Série:</label>
                                 <input :id="'serie-' + index" class="input is-success mt-1" :value="dados.aluno.serie">
                             </div>
-                            <div class="column is-2">
+                            <div class="column is-flex is-flex-direction-column is-2">
                                 <label :for="'sexo-' + index">Sexo:</label>
                                 <div class="select is-success is-rounded mt-1">
                                     <select :id="'sexo-' + index">
@@ -241,7 +241,7 @@
                             <div class="column is-2">
                                 <label :for="'idade-' + index">Idade:</label>
                                 <input :id="'idade-' + index" type="number" class="input is-success mt-1"
-                                    :value="dados.aluno.idade" disabled>
+                                    :value="dados.aluno.idade">
                             </div>
                         </div>
                         <div class="columns mb-0">
@@ -283,7 +283,7 @@
                         <div
                             v-for="(oficina, index) in this.listaOficinas" 
                             :key="index" 
-                            class="column is-6 py-2"
+                            class="column is-6 py-1"
                         >
                             <label :for="'turma-' + oficina.cod_turma" class="checkbox">
                                 <input 
@@ -364,7 +364,7 @@
 
 <style scoped>
     .container-dependentes {
-        overflow-y: scroll;
+        overflow-y: auto;
         max-height: 89vh;
         min-height: 89vh;
     }
