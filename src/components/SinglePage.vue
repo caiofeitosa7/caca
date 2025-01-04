@@ -210,7 +210,7 @@
                         <p class="titulo-card-noticia-left">
                             Festa das Crianças: "Alegria e Carinho em Cada Sorriso" 🎈❤️
                         </p>
-                        <img src="@/assets/images/dia_criancas_2024-2.png" alt="Todas as crianças reunidas em volta da mesa com um bolo.">
+                        <img src="@/assets/images/dia_criancas_2024-1.png" alt="Todas as crianças reunidas em volta da mesa com um bolo.">
                     </div>
                     <div class="container-conteudo px-5 py-5">
                         <div class="is-flex is-justify-content-space-between mb-4">
