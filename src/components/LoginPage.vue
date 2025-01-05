@@ -7,7 +7,7 @@
         },
         data() {
             return {
-                urlLogin: 'http://localhost:5000/logar_usuario',
+                urlLogin: 'https://projetocaca.pythonanywhere.com/logar_usuario',
                 conteudoModal: "",
                 showModal: false,
                 tituloModal: "",

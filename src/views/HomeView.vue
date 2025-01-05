@@ -15,7 +15,7 @@
         },
         data() {
             return {
-                urlLogout: 'http://localhost:5000/logout',
+                urlLogout: 'https://projetocaca.pythonanywhere.com/logout',
                 dados_aluno: null,
                 paginaAtual: 'Alunos'
             };

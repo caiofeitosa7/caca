@@ -18,7 +18,7 @@
 		},
 		data() {
             return {
-                urlDownloadAlunos: 'http://localhost:5000/download_alunos'
+                urlDownloadAlunos: 'https://projetocaca.pythonanywhere.com/download_alunos'
             };
         },
 		methods: {

@@ -6,8 +6,8 @@
             return {
                 listaAlunos: {},
                 quantAlunos: 0,
-                urlListarAlunos: 'http://localhost:5000/listar_alunos',
-                urlVisualizarAluno: 'http://localhost:5000/visualizar_aluno'
+                urlListarAlunos: 'https://projetocaca.pythonanywhere.com/listar_alunos',
+                urlVisualizarAluno: 'https://projetocaca.pythonanywhere.com/visualizar_aluno'
             };
         },
         methods: {

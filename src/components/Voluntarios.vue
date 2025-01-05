@@ -5,7 +5,7 @@
         data() {
             return {
                 listaVoluntarios: {},
-                url: 'http://localhost:5000/listar_voluntarios'
+                url: 'https://projetocaca.pythonanywhere.com/listar_voluntarios'
             };
         },
         methods: {
