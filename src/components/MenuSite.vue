@@ -41,7 +41,7 @@
             <a href="/" class="is-flex is-align-items-center">
                 <img class="image is-rounded is-48x48" src="@/assets/images/logo-caca.png" alt="Logo do CACA">
                 <p class="is-size-7 has-text-start">
-                    CENTRO DE APOIO À<br>CRIANÇA E AO ADOSLESCENTE
+                    CENTRO DE APOIO À<br>CRIANÇA E AO ADOLESCENTE
                 </p>
             </a>
         </h1>
