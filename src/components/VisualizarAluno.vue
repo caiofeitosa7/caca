@@ -24,6 +24,7 @@
                 urlOficinas: 'https://projetocaca.pythonanywhere.com/listar_turmas',
                 urlEscolas: 'https://projetocaca.pythonanywhere.com/listar_escolas',
                 urlPDF: 'https://projetocaca.pythonanywhere.com/baixar-pdf/',
+                urlArquivos: 'https://projetocaca.pythonanywhere.com/arquivos/',
                 oficinasSelecionadas: [],
                 listaOficinas: [],
                 alunoAtual: this.dados.aluno.codigo,
@@ -117,6 +118,7 @@
 
                     const blob = await response.blob();
                     const url = window.URL.createObjectURL(blob);
+                    // let url = this.urlArquivos + blob;
 
                     // Criando um link para download
                     const link = document.createElement('a');
