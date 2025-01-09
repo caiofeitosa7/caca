@@ -55,6 +55,8 @@
                     });
 
                     dados[elemento.id] = campos;
+
+                    console.log(dados)
                 });
 
                 let campos = {}
@@ -74,6 +76,10 @@
                         this.showModalMsg = true;
                         this.tituloModal = "Sucesso!";
                         this.conteudoModal = response.data.mensagem;
+
+                        setTimeout( () => (
+                            this.visualizarAluno(this.dados.aluno.codigo)
+                        ), 1500);
                     } else {
                         this.showModalMsg = true;
                         this.tituloModal = "Erro!";
@@ -270,6 +276,7 @@
                         </div>
                         <input id="dt_alteracao" type="date" :value="dados.aluno.dt_alteracao" disabled hidden/>
                         <input id="cod_responsavel" type="number" :value="dados.aluno.cod_responsavel" disabled hidden/>
+                        <input id="dt_cadastro" type="date" :value="dados.aluno.dt_cadastro" disabled hidden/>
                     </div>
                 </div>
 
