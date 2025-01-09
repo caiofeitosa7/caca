@@ -5,6 +5,7 @@
 
     export default {
         props: ['dados'],
+        emits: ['visualizarAluno'],
         components: {
             ModalAlunoAdjacente,
             ModalMensagem
