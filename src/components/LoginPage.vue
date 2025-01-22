@@ -15,6 +15,8 @@
         },
         methods: {
             fazerLogin() {
+                localStorage.clear();
+
                 let dados = {
                     usuario: document.getElementById('usuario').value,
                     senha: document.getElementById('senha').value
@@ -31,8 +33,9 @@
                 .then((dados) => {
                     if (dados.status === "success") {
                         localStorage.setItem("usuario", dados.codigo);
-                        localStorage.setItem("tipo_acesso", dados.tipo_acesso)
-                        window.location.href = '/home';
+                        localStorage.setItem("tipo_acesso", dados.tipo_acesso);
+                        localStorage.setItem('token', '3n83c47586nc274');
+                        this.$router.push('/home');
                     }
                     else {
                         this.showModal = true;

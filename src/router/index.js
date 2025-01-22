@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import { isAuthenticated } from "@/stores/auth";
 import SiteView from '../views/SiteView.vue'
 
 const router = createRouter({
@@ -17,8 +18,15 @@ const router = createRouter({
     {
       path: '/home',
       name: 'home',
-      component: () => import('../views/HomeView.vue')
-    }
+      component: () => import('../views/HomeView.vue'),
+      beforeEnter: (to, from, next) => {
+        if (!isAuthenticated()) {
+          next('/login'); // Redireciona para login se não estiver autenticado
+        } else {
+          next(); // Permite acesso se autenticado
+        }
+      },
+    },
   ]
 })
 

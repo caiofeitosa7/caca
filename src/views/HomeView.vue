@@ -33,8 +33,10 @@
                     const response = await fetch(this.urlLogout, {method: 'POST'});
                     const result = await response.json();
 
-                    if (result.status === 'success')
+                    if (result.status === 'success') {
+                        localStorage.clear();
                         window.location.href = '/login';
+                    }
                 } catch (error) {
                     console.error('Erro ao realizar logout:', error);
                 }
