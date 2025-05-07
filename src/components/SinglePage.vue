@@ -391,7 +391,7 @@
             </div>
         </section>
         <footer class="is-flex is-justify-content-center py-4">
-            <span>CACA © 2024 - Todos os direitos reservados.</span>
+            <span>CACA © 2025 - Todos os direitos reservados.</span>
         </footer>
     </main>
 </template>
